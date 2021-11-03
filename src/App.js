@@ -6,6 +6,7 @@ import { CartEmpty } from "./components/UI/CartEmpty";
 
 
 import { Footer } from "./components/Footer";
+import { TotalPrice } from "./components/TotalPrice";
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
 
@@ -30,6 +31,7 @@ function App() {
       <HistoryEmpty/>
       <CartEmpty/>
       <Footer />
+      <TotalPrice pricetotal={25.76}/>
     </main>
     
   );
