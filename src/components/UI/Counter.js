@@ -23,6 +23,7 @@ export function Counter() {
     line-height: 23px;
     text-align: center;
     color: #FFFFFF;
+    margin-bottom: 2px;
   `;
 
   const SignsLeast = styled.p`
@@ -34,7 +35,7 @@ export function Counter() {
     text-align: center;
     color: #FFFFFF;
     padding: 6px 7px;
-    margin-bottom: 0px;
+    margin-bottom: 2px;
   `;
 
   const Signs = styled.p`
@@ -46,6 +47,7 @@ export function Counter() {
     text-align: center;
     color: #ffffff;
     padding: 6px 7px 8px 4px;
+    margin-bottom: 2px;
   `;
 
   function handleClickLeast() {
