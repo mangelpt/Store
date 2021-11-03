@@ -1,6 +1,9 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-import { Counter } from "./components/UI/Counter";
+import { SearchEmpty } from "./components/UI/SearchEmpty";
+import { HistoryEmpty } from "./components/UI/HistoryEmpty";
+import { CartEmpty } from "./components/UI/CartEmpty";
+
 
 const cssGlobal = css`
   
@@ -16,7 +19,9 @@ function App() {
       <Global 
         styles={cssGlobal}
       />
-      <Counter/>
+      <SearchEmpty/>
+      <HistoryEmpty/>
+      <CartEmpty/>
     </main>
   );
 }
