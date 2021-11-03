@@ -4,9 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { ButtonWhite } from './UI/Buttons'
 import { ArrowIconRight, HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
-
 const StyledFooter = styled.footer`
-
 width: 75vw;
 margin: 10px auto;
 height: fit-content;
