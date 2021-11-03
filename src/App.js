@@ -1,7 +1,6 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-import { Labels } from "./components/UI/Labels";
-import { Input } from "./components/UI/Input";
+import { Counter } from "./components/UI/Counter";
 
 const cssGlobal = css`
   
@@ -17,6 +16,7 @@ function App() {
       <Global 
         styles={cssGlobal}
       />
+      <Counter/>
     </main>
   );
 }
