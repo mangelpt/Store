@@ -1,6 +1,7 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
 import { Footer } from "./components/Footer";
+import { Hero } from "./components/UI/Hero";
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
 
@@ -21,6 +22,7 @@ function App() {
       <Global
         styles={cssGlobal}
       />
+      <Hero prefix={"login"}/>
       <Footer />
     </main>
     
