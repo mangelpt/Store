@@ -1,6 +1,6 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-
+import { Footer } from "./components/Footer";
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
 
@@ -16,10 +16,12 @@ const cssGlobal = css`
 
 function App() {
   return (
+
     <main>
-      <Global 
+      <Global
         styles={cssGlobal}
       />
+      <Footer />
     </main>
     
   );
