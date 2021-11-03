@@ -1,9 +1,8 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
-import { FoodCard } from "./components/UI/FoodCard";
 
 const cssGlobal = css`
-  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
 
   * {
     font-family: 'Source Sans Pro', sans-serif;
@@ -22,6 +21,7 @@ function App() {
         styles={cssGlobal}
       />
     </main>
+    
   );
 }
 
