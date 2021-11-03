@@ -56,8 +56,17 @@ export const SearchIcon = () => {
 
 export const CalendarIcon = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+    <svg
+      width="108"
+      height="119"
+      viewBox="0 0 108 119"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M95.4167 11.8333H89.5V0H77.6667V11.8333H30.3333V0H18.5V11.8333H12.5833C6.075 11.8333 0.75 17.1583 0.75 23.6667V106.5C0.75 113.008 6.075 118.333 12.5833 118.333H95.4167C101.925 118.333 107.25 113.008 107.25 106.5V23.6667C107.25 17.1583 101.925 11.8333 95.4167 11.8333ZM95.4167 106.5H12.5833V47.3333H95.4167V106.5ZM12.5833 35.5V23.6667H95.4167V35.5H12.5833ZM24.4167 59.1667H83.5833V71H24.4167V59.1667ZM24.4167 82.8333H65.8333V94.6667H24.4167V82.8333Z"
+        fill="#C7C7C7"
+      />
     </svg>
-  )
+  );
 }
