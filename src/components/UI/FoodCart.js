@@ -11,6 +11,7 @@ const CartItem = styled.div`
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
   position: relative;
+  margin-bottom: 12px;
 `;
 
 const ItemImage = styled.img`
@@ -48,10 +49,10 @@ const ItemPrice = styled.div`
 export function FoodCart(props) {
   return (
     <CartItem>
-      <ItemImage src={props.image} alt={props.name}/>
+      <ItemImage src={props.image} alt={props.name} />
       <ItemDescription>
         <ItemName>{props.name}</ItemName>
-        <ItemPrice>{props.price}<Counter/></ItemPrice>
+        <ItemPrice>{props.price}<Counter /></ItemPrice>
       </ItemDescription>
     </CartItem>
   );

@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 
-export function TotalPrice({pricetotal}) {
+export function TotalPrice({ pricetotal }) {
 
   const ContainerPrice = styled.div`
-    width: 317px;
-    height: 35px;
+    width: 75vw;
+    height: fit-content;
     display: flex;
     align-items: center;
+    margin: auto;
     justify-content: space-between;
     p{
       font-family: "Source Sans Pro";
@@ -26,7 +27,7 @@ export function TotalPrice({pricetotal}) {
     }
   `;
 
-  return(
+  return (
     <ContainerPrice>
       <p>Total:</p>
       <label>{`$${pricetotal}`}</label>
