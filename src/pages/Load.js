@@ -13,7 +13,7 @@ const Background = styled.div`
   background-size: cover;
 `
 
-export default function Load () {
+export default function Load() {
   return (
     <Background>
       <Loading />
