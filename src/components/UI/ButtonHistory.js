@@ -21,10 +21,11 @@ const StyledDiv = styled.div`
   svg {
     width: 25px;
   }
+  margin-top: 45px;
 }
 
 `;
-export const ButtonHistory = () => {
+export  function  ButtonHistory() {
   return (
     <StyledDiv>
       <Link to="/history" className="link">
