@@ -1,5 +1,7 @@
 import { Loading } from "../components/UI/Loading";
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import background from "../assets/images/background.png"
 
 const Background = styled.div`
@@ -14,9 +16,18 @@ const Background = styled.div`
 `
 
 export default function Load() {
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => { setRedirect(true) }, 2000);
+  }, []);
+
   return (
-    <Background>
-      <Loading />
-    </Background>
-  )
+    <>
+      {redirect  && <Redirect to="/login" />}
+      <Background>
+        <Loading />
+      </Background>
+    </>
+    )
 }
