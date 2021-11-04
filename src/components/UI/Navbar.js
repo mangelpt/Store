@@ -2,6 +2,10 @@ import styled from "@emotion/styled";
 
 const Bar = styled.div`
   display: flex;
+  gap: 5px;
+  width: calc(100% - 75px);
+  overflow: visible;
+  flex-wrap: nowrap;
 `
 
 const Tab = styled.div`
@@ -12,6 +16,12 @@ const Tab = styled.div`
   line-height: 20px;
   text-align: center;
   padding: 10px 0;
+  cursor: pointer;
+
+  &:hover {
+    color: #FA4A0C;
+    border-bottom: 3px solid #FA4A0C;
+  }
 
   ${props => props.selected && `
     color: #FA4A0C;

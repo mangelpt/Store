@@ -4,15 +4,19 @@ import { NavLink } from 'react-router-dom'
 import { HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
 const StyledFooter = styled.footer`
-width: 75vw;
-margin: 10px auto;
+width: 75%;
+padding: 35px;
 height: fit-content;
 display: flex;
+background-color: #f6f6f9;
 justify-content:space-between;
 svg{
   width: 30px;
   color: gray;
 }
+position: fixed;
+bottom: 0;
+z-index: 3;
 `;
 
 export const Footer = () => {
