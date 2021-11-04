@@ -4,6 +4,8 @@ import { CardInput } from '../components/UI/CardInput';
 import { Button } from '../components/UI/Button';
 import { AxiosLogin } from '../services/AxiosLogin';
 import { useState } from 'react';
+import { AxiosIndexProducts, AxiosProductsId } from '../services/AxiosProduct';
+import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
 
 const Page = styled.div`
   width: 100%;
@@ -36,8 +38,12 @@ export default function Login() {
   const [email,SetEmail] = useState("");
   const [password,SetPassword] = useState("");
 
-  function handleAxiosLogin(){
-    AxiosLogin({email, password}).then(data => console.log(data));
+  async function handleAxiosLogin(){
+    await AxiosLogin({email, password}).then(data => console.log(data));
+    await AxiosIndexProducts().then(data => console.log(data));
+    await AxiosProductsId(1).then(data => console.log(data));
+    await AxiosShowUser().then(data => console.log(data, "showuser"));
+    await AxiosUpdateUser().then(data => console.log(data, "updateuser"));
   }
 
   return (
