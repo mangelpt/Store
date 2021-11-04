@@ -7,7 +7,7 @@ const Inpt = styled.input`
     font-size: 18px;
     line-height: 23px;
     border: 0;
-    width: 208px;
+    width: 200px;
     height: 27px;
     background: white;
     ::placeholder {
