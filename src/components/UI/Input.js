@@ -6,21 +6,25 @@ const Inpt = styled.input`
     font-weight: normal;
     font-size: 18px;
     line-height: 23px;
-    border: 0;
     width: 200px;
     height: 27px;
     background: white;
+    border: none;
+    background: none;
+    outline: none;
     ::placeholder {
         color: black;
+        opacity: 0.5
     }
 `
 
-export function Input( {type, name, placeholder} ) {
+export function Input( {type, name, placeholder,value} ) {
   return (
     <Inpt
         type={type}
         name={name}
         placeholder={placeholder} 
+        value={value}
     ></Inpt>
   )
 }

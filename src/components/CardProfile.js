@@ -66,19 +66,23 @@ export function CardProfile() {
                             textlabel="Name"
                             name="name"
                             type="text"
-                            placeholder="Margarita">
+                            placeholder="Margarita"
+                            value="Margarita"
+                            >
                 </CardInput> 
                 <CardInput 
                             textlabel="Email"
                             name="email"
                             type="email"
-                            placeholder="margarita@gmail.com">
+                            placeholder="margarita@gmail.com"
+                            value="margarita@gmail.com">
                 </CardInput> 
                 <CardInput 
                             textlabel="Phone"
                             name="phone"
                             type="nuber"
-                            placeholder="987654321">
+                            placeholder="987654321"
+                            value="987654321">
                 </CardInput> 
                 <ContainerInput>
                     <Lbl>Address</Lbl>
@@ -86,8 +90,10 @@ export function CardProfile() {
                         name="address"
                         placeholder="Calle el rosal, urb. el Jardin"
                         maxLength="140"
+                        value="Calle el rosal, urb. el Jardin"
                     >
                     </TextArea>
+                    <div />
                 </ContainerInput>
             </ContainerInfo>
         </ContainerForm>
