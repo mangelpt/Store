@@ -9,6 +9,9 @@ import { Hero } from "./components/UI/Hero";
 import { TotalPrice } from "./components/TotalPrice";
 import { CheckoutCard } from "./components/UI/CheckoutCard";
 import { Loading } from "./components/UI/Loading";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Login } from "./pages/Login";
+import { Profile } from "./pages/Profile";
 
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
@@ -30,7 +33,7 @@ function App() {
       <Global
         styles={cssGlobal}
       />
-      <CardProfile/>
+      {/* <CardProfile/>
       <Hero prefix={"login"}/>
       <SearchEmpty/>
       <HistoryEmpty/>
@@ -42,7 +45,14 @@ function App() {
         address={"Calle de la Paz, 1"}
         phone={"+34 654 546 789"}
       />
-      <TotalPrice pricetotal={25.76}/>
+      <TotalPrice pricetotal={25.76}/> */}
+      <Router>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/login" component={Login} />
+          <Route path="/profile" component={Profile} />
+        </Switch>
+      </Router>
     </main>
     
   );
