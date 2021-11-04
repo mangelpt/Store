@@ -1,11 +1,11 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { History } from "./pages/HistoryPage";
 import { Login } from "./pages/Login";
 import { Profile } from "./pages/Profile";
 import Load from "./pages/Load";
 import { Home } from "./pages/Home";
-import { History } from "./pages/History";
 import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
 import { SelectFood } from "./pages/SelectFood";
@@ -45,7 +45,7 @@ function App() {
         </Switch>
       </Router>
     </main>
-    
+
   );
 }
 

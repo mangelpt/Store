@@ -1,10 +1,7 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { BackHistory } from './UI/BackHistory'
-import { ButtonHistory } from './UI/ButtonHistory'
-import { Collapse } from './UI/CollapsiveCard'
-import { ArrowIcon, CartIcon, HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
+import { NavLink } from 'react-router-dom'
+import { HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
 const StyledFooter = styled.footer`
 width: 75vw;
@@ -22,7 +19,7 @@ export const Footer = () => {
   return (
     <>
       {/*  component test */}
-      <ButtonHistory />
+      {/* <ButtonHistory />
       <Collapse
         date={'wed ,mar 17 2021'}
         amount={2}
@@ -44,7 +41,7 @@ export const Footer = () => {
         <Link to="Cart">
           <CartIcon />
         </Link>
-      </BackHistory>
+      </BackHistory> */}
       {/* :::::::::::::::::::::::: */}
       <StyledFooter>
         <NavLink to="/home">
