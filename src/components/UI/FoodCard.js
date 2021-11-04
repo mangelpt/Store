@@ -55,7 +55,7 @@ export function FoodCard(props) {
       <FoodImg src={props.image} alt={props.name} />
       <FoodDescription>
         <FoodName>{props.name}</FoodName>
-        <FoodPrice>{props.price}</FoodPrice>
+        <FoodPrice>{`$${props.price}`}</FoodPrice>
       </FoodDescription>
     </Food>
   );
