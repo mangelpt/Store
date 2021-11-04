@@ -10,6 +10,7 @@ const Background = styled.div`
   align-items: center;
   justify-content: center;
   background-image: url(${background});
+  background-size: cover;
 `
 
 export default function Load () {

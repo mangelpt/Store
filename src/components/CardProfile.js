@@ -26,6 +26,7 @@ const ContainerInfo = styled.div`
     background-color:white;
     padding-top:12px;
     border-radius: 20px;
+    margin-right: 11px;
 `
 
 const ConatinerFile = styled.div`
