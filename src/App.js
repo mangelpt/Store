@@ -2,6 +2,7 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import Load from "./pages/Load";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
@@ -27,7 +28,8 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route exact path="/load" component={Load} />
+          {/*<Route exact path="/load" component={Load} />*/}
+          <Route exact path="/load" component={UpdateProfile}/>
         </Switch>
       </Router>
     </main>
