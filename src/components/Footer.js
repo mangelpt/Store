@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { BackHistory } from './UI/BackHistory'
 import { ButtonHistory } from './UI/ButtonHistory'
+import { Collapse } from './UI/CollapsiveCard'
 import { ArrowIcon, CartIcon, HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
 const StyledFooter = styled.footer`
@@ -22,7 +23,12 @@ export const Footer = () => {
     <>
       {/*  component test */}
       <ButtonHistory />
-
+      <Collapse
+        date={'wed ,mar 17 2021'}
+        amount={2}
+        total={27.90}
+        address="calle rosales 123 urb El jardin"
+      />
       <BackHistory >
         <button>
           <ArrowIcon />
