@@ -1,8 +1,9 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { ButtonWhite } from './UI/Buttons'
-import { ArrowIconRight, HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
+import { Link, NavLink } from 'react-router-dom'
+import { BackHistory } from './UI/BackHistory'
+import { ButtonHistory } from './UI/ButtonHistory'
+import { ArrowIcon, CartIcon, HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
 const StyledFooter = styled.footer`
 width: 75vw;
@@ -19,7 +20,26 @@ svg{
 export const Footer = () => {
   return (
     <>
-      <ButtonWhite> History <ArrowIconRight /> </ButtonWhite>
+      {/*  component test */}
+      <ButtonHistory />
+
+      <BackHistory >
+        <button>
+          <ArrowIcon />
+        </button>
+        {"my Profile"}
+      </BackHistory>
+
+      <BackHistory justify="space-between" >
+        <button >
+          <ArrowIcon
+          />
+        </button>
+        <Link to="Cart">
+          <CartIcon />
+        </Link>
+      </BackHistory>
+      {/* :::::::::::::::::::::::: */}
       <StyledFooter>
         <NavLink to="/home">
           <HomeIcon />
