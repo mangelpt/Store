@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import logo from "../../assets/images/logo.svg";
+import { Logo } from "./Logo";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -11,21 +11,6 @@ const HeroContainer = styled.div`
   background: #FFFFFF;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
   border-radius: 0 0 30px 30px;
-`;
-
-const LogoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-`;
-
-const Slogan = styled.p`
-  font-weight: 600;
-  font-size: 10px;
-  line-height: 86.84%;
-  letter-spacing: 0.05em;
-  color: #FA4A0C;
 `;
 
 const Tab = styled.div`
@@ -62,17 +47,10 @@ const TabContainer = styled.div`
   justify-content: center;
 `;
 
-const HeroImage = styled.img`
-  margin-top: 140px;
-`;
-
 export function Hero (props) {
   return (
     <HeroContainer>
-      <LogoContainer>
-        <HeroImage src={logo} alt="logo" />
-        <Slogan>Food for Everyone</Slogan>
-      </LogoContainer>
+      <Logo prefix="hero" />
       <TabContainer>
         <TabLogin prefix={props.prefix}>Login</TabLogin>
         <TabSignup prefix={props.prefix}>Sign-up</TabSignup>
