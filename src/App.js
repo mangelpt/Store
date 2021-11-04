@@ -7,6 +7,7 @@ import { Footer } from "./components/Footer";
 import { Hero } from "./components/UI/Hero";
 import { TotalPrice } from "./components/TotalPrice";
 import { CheckoutCard } from "./components/UI/CheckoutCard";
+import { Loading } from "./components/UI/Loading";
 
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
@@ -31,6 +32,7 @@ function App() {
       <Hero prefix={"login"}/>
       <SearchEmpty/>
       <HistoryEmpty/>
+      <Loading />
       <CartEmpty/>
       <Footer />
       <CheckoutCard 
