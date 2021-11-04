@@ -52,7 +52,7 @@ const FoodImg = styled.img`
 export function FoodCard(props) {
   return (
     <Food>
-      <FoodImg src={props.image} alt="food" />
+      <FoodImg src={props.image} alt={props.name} />
       <FoodDescription>
         <FoodName>{props.name}</FoodName>
         <FoodPrice>{props.price}</FoodPrice>
