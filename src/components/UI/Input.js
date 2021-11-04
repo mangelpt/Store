@@ -7,11 +7,11 @@ const Inpt = styled.input`
     font-size: 18px;
     line-height: 23px;
     border: 0;
-    width: 314px;
+    width: 200px;
     height: 27px;
     background: white;
     ::placeholder {
-        color: gray;
+        color: black;
     }
 `
 
@@ -22,6 +22,5 @@ export function Input( {type, name, placeholder} ) {
         name={name}
         placeholder={placeholder} 
     ></Inpt>
-    
   )
 }

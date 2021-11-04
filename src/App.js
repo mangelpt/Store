@@ -1,5 +1,6 @@
 import React from "react";
 import { css, Global } from "@emotion/react";
+import { CardProfile } from "./components/CardProfile";
 import { SearchEmpty } from "./components/UI/SearchEmpty";
 import { HistoryEmpty } from "./components/UI/HistoryEmpty";
 import { CartEmpty } from "./components/UI/CartEmpty";
@@ -29,6 +30,7 @@ function App() {
       <Global
         styles={cssGlobal}
       />
+      <CardProfile/>
       <Hero prefix={"login"}/>
       <SearchEmpty/>
       <HistoryEmpty/>
