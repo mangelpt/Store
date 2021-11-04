@@ -2,7 +2,8 @@ import React from "react";
 import { css, Global } from "@emotion/react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { History } from "./pages/HistoryPage";
-import { Login } from "./pages/Login";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import { Profile } from "./pages/Profile";
 import Load from "./pages/Load";
 import { Home } from "./pages/Home";
@@ -23,6 +24,12 @@ const cssGlobal = css`
     display: flex;
     justify-content: center;
   }
+
+  main {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
 `;
 
 function App() {
@@ -34,8 +41,9 @@ function App() {
       />
       <Router>
         <Switch>
-          <Route exact path="/load" component={Load} />
-          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Load} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
           <Route path="/profile" component={Profile} />
           <Route path="/home" component={Home} />
           <Route path="/history" component={History} />

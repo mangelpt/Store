@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Logo } from "./Logo";
+import { Link } from "react-router-dom";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -22,8 +23,14 @@ const Tab = styled.div`
   text-align: center;
   cursor: pointer;
   
+  
   &:hover {
     border-bottom: 3px solid #FA4A0C
+  }
+
+  a {
+    text-decoration: none;
+    color: #000000;
   }
 `;
 
@@ -52,8 +59,12 @@ export function Hero (props) {
     <HeroContainer>
       <Logo prefix="hero" />
       <TabContainer>
-        <TabLogin prefix={props.prefix}>Login</TabLogin>
-        <TabSignup prefix={props.prefix}>Sign-up</TabSignup>
+        <TabLogin prefix={props.prefix}>
+          <Link to="/login">Login</Link>
+        </TabLogin>
+        <TabSignup prefix={props.prefix}>
+          <Link to="/signup">Sign-up</Link>
+        </TabSignup>
       </TabContainer>
     </HeroContainer>
   );

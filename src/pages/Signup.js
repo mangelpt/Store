@@ -29,10 +29,10 @@ const Container = styled.div`
   margin-bottom: 40px;
 `
 
-export default function Login() {
+export default function Signup() {
   return (
     <Page>
-      <Hero prefix="login" />
+      <Hero prefix="signup" />
       <Container>
         <Form>
           <CardInput 
@@ -48,7 +48,7 @@ export default function Login() {
             placeholder="**********"
           />
         </Form>
-        <Button text="Login"/>
+        <Button text="Sign-up"/>
       </Container>
     </Page>
   );
