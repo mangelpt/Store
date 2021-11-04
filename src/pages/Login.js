@@ -2,6 +2,8 @@ import { Hero } from '../components/UI/Hero';
 import styled from '@emotion/styled';
 import { CardInput } from '../components/UI/CardInput';
 import { Button } from '../components/UI/Button';
+import { AxiosLogin } from '../services/AxiosLogin';
+import { useState } from 'react';
 
 const Page = styled.div`
   width: 100%;
@@ -30,6 +32,14 @@ const Container = styled.div`
 `
 
 export default function Login() {
+
+  const [email,SetEmail] = useState("");
+  const [password,SetPassword] = useState("");
+
+  function handleAxiosLogin(){
+    AxiosLogin({email, password}).then(data => console.log(data));
+  }
+
   return (
     <Page>
       <Hero prefix="login" />
@@ -40,15 +50,17 @@ export default function Login() {
             name="email"
             type="email"
             placeholder="my_mail@mail.com"
+            handleaxios={(e) => SetEmail(e.target.value)}
           />
           <CardInput 
             textlabel="Password"
             name="password"
             type="password"
             placeholder="**********"
+            handleaxios={(e) => SetPassword(e.target.value)}
           />
         </Form>
-        <Button text="Login"/>
+        <Button fnc={handleAxiosLogin} text="Login"/>
       </Container>
     </Page>
   );

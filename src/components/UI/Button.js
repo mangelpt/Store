@@ -21,6 +21,6 @@ const Bttn = styled.button`
 
 export function Button(props) {
   return (
-    <Bttn>{props.text}</Bttn>
+    <Bttn onClick={props.fnc}>{props.text}</Bttn>
   )
 }
