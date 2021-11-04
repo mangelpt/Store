@@ -12,7 +12,7 @@ const Background = styled.div`
   background-image: url(${background});
 `
 
-export default function Load () {
+export default function Load() {
   return (
     <Background>
       <Loading />
