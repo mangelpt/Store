@@ -15,10 +15,10 @@ const LogoContainer = styled.div`
     color: #FA4A0C;
   }
 
-  img {
-    ${props => props.prefix==="hero" &&
-    `margin-top: 140px `} 
-  }
+  ${props => props.prefix==="hero" && `
+    margin-top: 140px;
+    margin-bottom: 119px;
+  `} 
 `;
 
 export function Logo(props) {

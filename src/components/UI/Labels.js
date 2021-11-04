@@ -16,6 +16,6 @@ export const Labelittle = styled.label`
     font-size: 18px;
     line-height: 23px;
     color: #333333;
-    margin-top: 35px;
-    margin-bottom: 38px;
+    margin-right: auto;
+    margin-left: 40px;
 `

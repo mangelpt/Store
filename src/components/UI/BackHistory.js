@@ -5,8 +5,7 @@ const StyledDiv = styled.div`
 width: 75vw;
 display: flex;
 height: fit-content;
-background-color: #fff;
-font-size: 18px;
+font-size: 20px;
 font-weight: 600;
 margin:10px auto;
 padding: 10px;

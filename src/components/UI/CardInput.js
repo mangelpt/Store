@@ -5,15 +5,15 @@ import  {Input} from "./Input"
 export const ContainerInput = styled.div`
     display: flex;
     flex-direction: column;
-    width:208px;
-    height:50px;
+    width:100%;
+    height:55px;
     gap:5px;
     border-bottom: 1px solid black;
     
 `
 
 export const TextArea = styled.textarea`
-  width: 206px;
+  width: 100%;
   min-height: 55px;
   color: black;
   background: #ffffff;

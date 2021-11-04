@@ -19,8 +19,8 @@ const Bttn = styled.button`
   }
 `
 
-export function Button({ text }) {
+export function Button(props) {
   return (
-    <Bttn>{text}</Bttn>
+    <Bttn>{props.text}</Bttn>
   )
 }

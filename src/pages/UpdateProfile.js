@@ -8,19 +8,19 @@ import { CardProfile } from '../components/CardProfile';
 import { Labelittle } from '../components/UI/Labels';
 
 const StyledDiv = styled.div`
-    width: 100vw;
+    width: 100%;
+    height: 100vh;
     align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     padding-top: 50px;
-}
+    gap: 38px;
     .container{
     flex: 2;
     }
-`;
+`
 
-export default function UpdateProfile(){
+export function UpdateProfile(){
   return (
     <StyledDiv>
       <BackHistory>
