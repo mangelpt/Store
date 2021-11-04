@@ -8,16 +8,19 @@ import { CardProfile } from '../components/CardProfile';
 import { Labelittle } from '../components/UI/Labels';
 
 const StyledDiv = styled.div`
-    width: 100%;
+    width: 100vh;
     height: 100vh;
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding-top: 50px;
-    gap: 38px;
+    gap: 22px;
     .container{
     flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 38px;
     }
+    margin-top: 50px;
 `
 
 export function UpdateProfile(){
@@ -29,11 +32,13 @@ export function UpdateProfile(){
         </button>
         {"My Profile"}
       </BackHistory>
-      <Labelittle>
-        {"Update personal details"}
-      </Labelittle>
-      <CardProfile />
-      <Button text="Update"></Button>
+      <div className="container">
+        <Labelittle>
+          {"Update personal details"}
+        </Labelittle>
+        <CardProfile />
+      </div>
+      <Button text="Update" />
       <Footer />
     </StyledDiv>
   )
