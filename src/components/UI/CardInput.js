@@ -8,7 +8,8 @@ export const ContainerInput = styled.div`
     width:208px;
     height:50px;
     gap:5px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid black;
+    
 `
 
 export const TextArea = styled.textarea`
@@ -27,11 +28,11 @@ export const TextArea = styled.textarea`
   font-size: 18px;
   line-height: 23px;
   border: 0;
-  border-bottom: 1px solid;
-
+  outline: none;
+  border-bottom: 1px solid black;
 `;
 
-export function CardInput({textlabel, name, type, placeholder}) {
+export function CardInput({textlabel, name, type, placeholder,value}) {
   return (
     <>
     <ContainerInput>
@@ -39,6 +40,7 @@ export function CardInput({textlabel, name, type, placeholder}) {
       <Input type={type}
           name={name}
           placeholder={placeholder}
+          value={value}
       >
       </Input>
     </ContainerInput>  

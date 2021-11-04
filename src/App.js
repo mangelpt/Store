@@ -9,6 +9,7 @@ import { Hero } from "./components/UI/Hero";
 import { TotalPrice } from "./components/TotalPrice";
 import { CheckoutCard } from "./components/UI/CheckoutCard";
 import { Loading } from "./components/UI/Loading";
+import { CardPersonalDetails } from "./components/CardPersonalDetails";
 
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
@@ -40,6 +41,12 @@ function App() {
       <CheckoutCard 
         name={"Margarita Flores"}
         address={"Calle de la Paz, 1"}
+        phone={"+34 654 546 789"}
+      />
+      <CardPersonalDetails
+        name={"Margarita Flores"}
+        address={"Calle de la Paz, 1 La Pazasdasd "}
+        email={"margarita@email.com"}
         phone={"+34 654 546 789"}
       />
       <TotalPrice pricetotal={25.76}/>
