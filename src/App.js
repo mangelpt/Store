@@ -6,6 +6,7 @@ import { CartEmpty } from "./components/UI/CartEmpty";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/UI/Hero";
 import { TotalPrice } from "./components/TotalPrice";
+
 const cssGlobal = css`
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Lato&family=Comic+Neue:wght@400;700&display=swap');
 
