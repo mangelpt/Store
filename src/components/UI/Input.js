@@ -18,13 +18,14 @@ const Inpt = styled.input`
     }
 `
 
-export function Input( {type, name, placeholder,value} ) {
+export function Input( {type, name, placeholder,value,onChange} ) {
   return (
     <Inpt
         type={type}
         name={name}
         placeholder={placeholder} 
         value={value}
+        onChange={onChange}
     ></Inpt>
   )
 }
