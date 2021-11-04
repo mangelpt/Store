@@ -11,9 +11,12 @@ const CardPersonal = styled.div`
   display: flex;
   flex-direction: row;
   gap: 15px;
-  
+  margin:0;
+  padding: unset;
+  margin-top:10px;
   form {
-    width: 182px;
+    margin-top:18px;
+    width: 165px;
     display: flex;
     flex-direction: column;
   }
@@ -45,19 +48,22 @@ const CardPersonal = styled.div`
   img {
     width: 91px;
     height: 100px;
+    margin-top:18px;
+    margin-left:16px;
   }
 `;
 
 
 export const TextArea = styled.textarea`
-  width: 206px;
+  width: 176px;
   min-height: 55px;
   color: #333333;
   background: #ffffff;
   border: none;
   box-sizing: border-box;
   ::placeholder {
-    color: #333333;
+    color: black;
+    opacity: 0.5
   }
   font-family: Source Sans Pro;
   font-style: normal;
