@@ -9,7 +9,8 @@ import Load from "./pages/Load";
 import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
-import { SelectFood } from "./pages/SelectFood"; 
+import { FoodDetails } from "./pages/FoodDetails";
+
 import { UpdateProfile } from "./pages/UpdateProfile";
 
 const cssGlobal = css`
@@ -49,10 +50,10 @@ function App() {
           <Route path="/profile" component={Profile} />
           <Route path="/home" component={Home} />
           <Route path="/history" component={History} />
-          <Route path="/description" component={SelectFood} />
+          <Route path="/description" component={FoodDetails} />
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
-          <Route path="/updateprofile" component={UpdateProfile}/>
+          <Route path="/updateprofile" component={UpdateProfile} />
         </Switch>
       </Router>
     </main>
