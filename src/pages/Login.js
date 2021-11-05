@@ -8,7 +8,7 @@ import { AxiosIndexProducts, AxiosProductsId } from '../services/AxiosProduct';
 import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
 
 const Page = styled.div`
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;

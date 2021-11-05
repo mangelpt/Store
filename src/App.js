@@ -10,8 +10,8 @@ import { Home } from "./pages/Home";
 import { Cart } from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
 import { FoodDetails } from "./pages/FoodDetails";
-
 import { UpdateProfile } from "./pages/UpdateProfile";
+import { Results } from "./pages/Results";
 
 const cssGlobal = css`
 
@@ -31,7 +31,8 @@ const cssGlobal = css`
   main {
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
   }
 `;
 
@@ -54,6 +55,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/updateprofile" component={UpdateProfile} />
+          <Route path="/results" component={Results} />
         </Switch>
       </Router>
     </main>
