@@ -25,7 +25,7 @@ const StyledDiv = styled.div`
 }
 
 `;
-export  function  ButtonHistory() {
+export function ButtonHistory() {
   return (
     <StyledDiv>
       <Link to="/history" className="link">

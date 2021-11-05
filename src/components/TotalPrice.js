@@ -4,7 +4,7 @@ export function TotalPrice({ pricetotal }) {
 
   const ContainerPrice = styled.div`
     width: 75vw;
-    height: fit-content;
+    height: 80px;
     display: flex;
     align-items: center;
     margin: auto;

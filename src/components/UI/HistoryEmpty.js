@@ -6,6 +6,7 @@ export function HistoryEmpty() {
   const ContainerHistoryEmpty = styled.div`
     display: flex;
     flex-direction: column;
+    height: 70vh;
     align-items: center;
     svg {
       width: 100px;
