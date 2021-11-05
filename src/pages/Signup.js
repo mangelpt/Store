@@ -4,6 +4,7 @@ import { CardInput } from '../components/UI/CardInput';
 import { Button } from '../components/UI/Button';
 import { useState } from 'react';
 import { AxiosSignUp } from '../services/AxiosLogin';
+import { NavLink } from "react-router-dom";
 
 const Page = styled.div`
   width: 100vw;
@@ -60,7 +61,9 @@ export default function Signup() {
             handleaxios={(e) => SetPassword(e.target.value)}
           />
         </Form>
-        <Button fnc={handleAxiosLogin} text="Sign-up"/>
+        <NavLink to="/home">
+          <Button fnc={handleAxiosLogin} text="Sign-up"/>
+        </NavLink>
       </Container>
     </Page>
   );
