@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 
-export function FoodDetail({props}) {
+export function FoodDetail(props) {
 
   const Container = styled.div`
-    width: 414px;
+    width: 75vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,8 +13,8 @@ export function FoodDetail({props}) {
     width: 241px;
     height: 241px;
     border-radius: 50%; 
-    background: url(${props.picture_url});
-    background-size: cover;
+    background: url(${props.picture_url}); 
+    background-size: cover; 
   `;
 
   const NameDish = styled.p`
@@ -27,7 +27,7 @@ export function FoodDetail({props}) {
     line-height: 35px;
     text-align: center;
     color: #333333;
-    margin-top: 91px;
+    margin-top: 50px;
   `;
 
   const Price = styled.p`

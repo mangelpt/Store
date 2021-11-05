@@ -9,10 +9,8 @@ font-size: 20px;
 font-weight: 600;
 margin:10px auto;
 padding: 10px;
-
 gap: 70px;
 button{
-
   border: none;
   background-color: transparent;
   cursor: pointer;
