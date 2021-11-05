@@ -18,7 +18,7 @@ const Inpt = styled.input`
     }
 `
 
-export function Input( {type, name, placeholder,value,onChange} ) {
+export function Input( {type, name, placeholder,value,onChange, disabled} ) {
   return (
     <Inpt
         type={type}
@@ -26,6 +26,7 @@ export function Input( {type, name, placeholder,value,onChange} ) {
         placeholder={placeholder} 
         value={value}
         onChange={onChange}
+        disabled={disabled}
     ></Inpt>
   )
 }

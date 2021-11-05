@@ -21,6 +21,7 @@ export const TextArea = styled.textarea`
   box-sizing: border-box;
   ::placeholder {
     color: black;
+    opacity: 0.5
   }
   font-family: Source Sans Pro;
   font-style: normal;

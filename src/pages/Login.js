@@ -41,8 +41,8 @@ export default function Login() {
 
   async function handleAxiosLogin(){
     await AxiosLogin({email, password}).then(data => console.log(data));
-    //await OrderProducts({date: "2021-03-18", address: "jr ceramicas 360", product_ids:[8]}).then(data => console.log(data));
-    //await ShowOrders().then(data => console.log(data));
+    await OrderProducts({date: "2021-03-18", address: "jr ceramicas 360", product_ids:[8]}).then(data => console.log(data));
+    await ShowOrders().then(data => console.log(data));
     await AxiosIndexProducts().then(data => console.log(data));
     await AxiosProductsId(1).then(data => console.log(data));
     await AxiosShowUser().then(data => console.log(data, "showuser"));

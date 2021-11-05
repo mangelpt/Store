@@ -63,7 +63,7 @@ export const TextArea = styled.textarea`
   box-sizing: border-box;
   ::placeholder {
     color: black;
-    opacity: 0.5
+    opacity: 0.5;
   }
   font-family: Source Sans Pro;
   font-style: normal;
@@ -82,30 +82,33 @@ export function CardPersonalDetails(props) {
                 <Input
                 type="text"
                 name="name"
-                value={props.name}
+                value="Margarita"
                 placeholder="name"
-                disabled={props.disabled}/>
+                disabled="disabled"
+                />
                 <div />
                 <Input
                 type="email"
                 name="email"
-                value={props.email}
+                value="margrita@mail.com"
                 placeholder="email"
-                disabled={props.disabled}/>
+                disabled="disabled"
+                />
                 <div />
                 <Input
-                type="tel"
+                type="number"
                 name="phone"
-                value={props.phone}
+                value="855324155"
                 placeholder="phone"
-                disabled={props.disabled}/>
+                disabled="disabled"
+                />
                 <div />
                 <TextArea
                 type="text"
                 name="address"
-                value={props.address}
+                value="Jiron ceramixs 324"
                 placeholder="address"
-                disabled={props.disabled}
+                disabled="disabled"
                 />
             </form>
     </CardPersonal>
