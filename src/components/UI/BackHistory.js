@@ -2,13 +2,13 @@ import React from 'react'
 import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
-width: 85vw;
+width: 80%;
 display: flex;
 height: fit-content;
 font-size: 20px;
 font-weight: 600;
-margin:10px auto;
-padding: 10px;
+margin: 10px auto;
+padding: 10px 10%;
 gap: 70px;
 button{
   border: none;

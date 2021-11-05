@@ -8,17 +8,18 @@ import { FoodCard } from '../components/UI/FoodCard';
 import { SearchBar } from '../components/UI/SearchBar';
 
 const StyledDiv = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: space-between;
-gap: 10px;
-p{
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 10px;
-  text-align: center;
-}
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: center;
+  }
 `;
 
 const List = styled.div`

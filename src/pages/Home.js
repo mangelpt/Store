@@ -21,7 +21,7 @@ const List = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 130px;
+  margin-bottom: 160px;
 
   a {
     text-decoration: none;
@@ -30,6 +30,7 @@ const List = styled.div`
 `;
 
 const Head = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
