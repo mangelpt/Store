@@ -2,7 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled';
 
 const StyledDiv = styled.div`
-width: 75vw;
+width: 85vw;
 display: flex;
 height: fit-content;
 font-size: 20px;

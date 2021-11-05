@@ -48,7 +48,7 @@ export function Home() {
 
   useEffect(() => {
     if (value !== "") {
-      setTimeout(() => { setRedirect(true) }, 1000);
+      setTimeout(() => { setRedirect(true) }, 2000);
     }
   }, [value]);
 

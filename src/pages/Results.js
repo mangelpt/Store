@@ -46,7 +46,7 @@ export const Results = () => {
     const data = async () => {
       const response = await AxiosIndexProducts();
       const result = response.filter(food => 
-        food.name.toLowerCase().includes(value));
+        food.name.toLowerCase().includes(value.toLowerCase()));
       setResults(result);
     }
     const timerId = setTimeout(data, 1000);
