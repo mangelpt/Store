@@ -5,6 +5,7 @@ import { Navbar } from "../components/UI/Navbar";
 import { SearchBar } from "../components/UI/SearchBar";
 import { FoodCard } from "../components/UI/FoodCard";
 import { AxiosIndexProducts } from "../services/AxiosProduct";
+import { Link } from "react-router-dom";
 
 const Page = styled.div`
   display: flex;
@@ -20,6 +21,11 @@ const List = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 130px;
+
+  a {
+    text-decoration: none;
+    color: #333333;
+  }
 `;
 
 const Head = styled.div`
@@ -43,12 +49,10 @@ export function Home() {
       setProducts(response);
     }
     data();
-    console.log(products);
-    const arr = [];
-    products.map((product) => !arr.includes(product.category) && arr.push(product.category));
-    console.log(arr.sort());
-    setCategories(arr.sort());
-  }, []);
+    const foodTypes = [];
+    products.map((product) => !foodTypes.includes(product.category) && foodTypes.push(product.category));
+    setCategories(foodTypes.sort());
+  }, [products]);
 
   return (
     <Page>
@@ -62,12 +66,14 @@ export function Home() {
       </Head>
       <List>
         {products.filter((product) => product.category === tabSelected).map((product) => (
-          <FoodCard
-            key={product.id}
-            image={product.picture_url}
-            name={product.name}
-            price={product.price} 
-          />
+          <Link to={`/foods/${product.id}/description`}>
+            <FoodCard
+              key={product.id}
+              image={product.picture_url}
+              name={product.name}
+              price={product.price} 
+            />
+          </Link>
         ))}
       </List>
       <Footer />
