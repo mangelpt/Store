@@ -10,15 +10,17 @@ import { CardPersonalDetails } from '../components/CardPersonalDetails';
 import { Labelittle } from '../components/UI/Labels';
 
 const StyledDiv = styled.div`
-    width: 100vh;
-    height: 100vh;
+    width: 414px;
+    height: 737px;
     align-items: center;
     display: flex;
     flex-direction: column;
     gap: 22px;
+    justify-content: space-between;
     .container{
     flex: 2;
     display: flex;
+    height: 550px;
     flex-direction: column;
     .optionChange{
         display: flex;

@@ -8,8 +8,8 @@ import { CardProfile } from '../components/CardProfile';
 import { Labelittle } from '../components/UI/Labels';
 
 const StyledDiv = styled.div`
-    width: 100vh;
-    height: 100vh;
+    width: 414px;
+    height: 736px;
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -21,6 +21,7 @@ const StyledDiv = styled.div`
     gap: 38px;
     }
     margin-top: 50px;
+    
 `
 
 export function UpdateProfile(){

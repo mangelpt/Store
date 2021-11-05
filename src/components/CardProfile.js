@@ -40,9 +40,9 @@ const ConatinerFile = styled.div`
     padding-top:12px;
     display: flex;
     flex-direction: column;
-
+    margin-left: 10px;
     label {
-        color: #B8B8BB;
+        color: #B8B8BB
     }
 
     input[type="file"]{
@@ -68,7 +68,7 @@ export function CardProfile() {
                             name="name"
                             type="text"
                             placeholder="Margarita"
-                            value="Margarita"
+                            
                             >
                 </CardInput> 
                 <CardInput 
@@ -76,14 +76,14 @@ export function CardProfile() {
                             name="email"
                             type="email"
                             placeholder="margarita@gmail.com"
-                            value="margarita@gmail.com">
+                            >
                 </CardInput> 
                 <CardInput 
                             textlabel="Phone"
                             name="phone"
                             type="nuber"
                             placeholder="987654321"
-                            value="987654321">
+                            >
                 </CardInput> 
                 <ContainerInput>
                     <Lbl>Address</Lbl>
@@ -91,7 +91,6 @@ export function CardProfile() {
                         name="address"
                         placeholder="Calle el rosal, urb. el Jardin"
                         maxLength="140"
-                        value="Calle el rosal, urb. el Jardin"
                     >
                     </TextArea>
                     <div />
