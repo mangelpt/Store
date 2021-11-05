@@ -15,6 +15,7 @@ const BtnIcon = styled.button`
 `
 
 export function SearchBar(props) {
+
   return (
     <BackHistory justify="space-between">
       <Search>
@@ -26,6 +27,7 @@ export function SearchBar(props) {
           name="food"
           placeholder="Search"
           value={props.value}
+          onChange={(e) => props.search(e.target.value)}
         />
       </Search>
       <CartIconBar />

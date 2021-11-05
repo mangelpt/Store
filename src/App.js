@@ -55,7 +55,7 @@ function App() {
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/updateprofile" component={UpdateProfile} />
-          <Route path="/results" component={Results} />
+          <Route exact path="/search/:query?" component={Results} />
         </Switch>
       </Router>
     </main>

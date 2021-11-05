@@ -5,6 +5,7 @@ import { Navbar } from "../components/UI/Navbar";
 import { SearchBar } from "../components/UI/SearchBar";
 import { FoodCard } from "../components/UI/FoodCard";
 import { AxiosIndexProducts } from "../services/AxiosProduct";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Page = styled.div`
@@ -40,8 +41,16 @@ const Head = styled.div`
 
 export function Home() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [tabSelected, setTabSelected] = useState("italian");
+  const categories = ["italian", "mexican", "snack", "soups", "sushi"];
+  const [value, setValue] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    if (value !== "") {
+      setTimeout(() => { setRedirect(true) }, 1000);
+    }
+  }, [value]);
 
   useEffect(() => {
     const data = async () => {
@@ -49,20 +58,18 @@ export function Home() {
       setProducts(response);
     }
     data();
-    const foodTypes = [];
-    products?.map((product) => !foodTypes.includes(product.category) && 
-                              foodTypes.push(product.category));
-    setCategories(foodTypes.sort());
-
-    return setProducts([]);
   }, []);
 
   return (
     <Page>
+      {redirect  && <Redirect to={`/search/${value}`} />}
       <Head>
-        <SearchBar />
+        <SearchBar 
+          value={value}
+          search={setValue}
+        />
         <Navbar
-          categories={[...categories]}
+          categories={categories}
           selected={tabSelected}
           toggleSelected={setTabSelected}
         />

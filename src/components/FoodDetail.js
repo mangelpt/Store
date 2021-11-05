@@ -19,7 +19,7 @@ export function FoodDetail(props) {
 
   const NameDish = styled.p`
     width: 100%;
-    height: 35px;
+    height: fit-content;
     font-family: "Source Sans Pro";
     font-style: normal;
     font-weight: 600;
