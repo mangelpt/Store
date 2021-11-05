@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/UI/Navbar";
 import { SearchBar } from "../components/UI/SearchBar";
 import { FoodCard } from "../components/UI/FoodCard";
+import { AxiosIndexProducts } from "../services/AxiosProduct";
 
 const Page = styled.div`
   display: flex;
@@ -32,8 +33,22 @@ const Head = styled.div`
 `;
 
 export function Home() {
-  const categories = ["Italian", "Mexican", "Snacks", "Soups", "Sushi"];
-  const [tabSelected, setTabSelected] = useState("Italian");
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [tabSelected, setTabSelected] = useState("italian");
+
+  useEffect(() => {
+    const data = async () => {
+      const response = await AxiosIndexProducts();
+      setProducts(response);
+    }
+    data();
+    console.log(products);
+    const arr = [];
+    products.map((product) => !arr.includes(product.category) && arr.push(product.category));
+    console.log(arr.sort());
+    setCategories(arr.sort());
+  }, []);
 
   return (
     <Page>
@@ -46,16 +61,14 @@ export function Home() {
         />
       </Head>
       <List>
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
+        {products.filter((product) => product.category === tabSelected).map((product) => (
+          <FoodCard
+            key={product.id}
+            image={product.picture_url}
+            name={product.name}
+            price={product.price} 
+          />
+        ))}
       </List>
       <Footer />
     </Page>
