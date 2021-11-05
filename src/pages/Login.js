@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { OrderProducts, ShowOrders } from "../services/OrderProducts"
 import { AxiosIndexProducts, AxiosProductsId } from '../services/AxiosProduct';
 import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
+import { NavLink } from "react-router-dom";
 
 const Page = styled.div`
   width: 100vw;
@@ -69,7 +70,9 @@ export default function Login() {
             handleaxios={(e) => SetPassword(e.target.value)}
           />
         </Form>
-        <Button fnc={handleAxiosLogin} text="Login"/>
+        <NavLink to="/home">
+          <Button fnc={handleAxiosLogin} text="Login"/>
+        </NavLink>
       </Container>
     </Page>
   );
