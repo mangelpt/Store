@@ -18,7 +18,7 @@ export function FoodDetail(props) {
   `;
 
   const NameDish = styled.p`
-    width: 124px;
+    width: 100%;
     height: 35px;
     font-family: "Source Sans Pro";
     font-style: normal;
@@ -57,7 +57,7 @@ export function FoodDetail(props) {
 
   const Description = styled.p`
     width: 297px;
-    height: 80px;
+    height: fit-content;
     font-family: "Source Sans Pro";
     font-style: normal;
     font-weight: normal;

@@ -50,9 +50,12 @@ export function Home() {
     }
     data();
     const foodTypes = [];
-    products.map((product) => !foodTypes.includes(product.category) && foodTypes.push(product.category));
+    products?.map((product) => !foodTypes.includes(product.category) && 
+                              foodTypes.push(product.category));
     setCategories(foodTypes.sort());
-  }, [products]);
+
+    return setProducts([]);
+  }, []);
 
   return (
     <Page>
@@ -65,8 +68,8 @@ export function Home() {
         />
       </Head>
       <List>
-        {products.filter((product) => product.category === tabSelected).map((product) => (
-          <Link to={`/foods/${product.id}/description`}>
+        {products?.filter((product) => product.category === tabSelected).map((product) => (
+          <Link to={`/foods/${product.id}/description`} key={product.id}>
             <FoodCard
               key={product.id}
               image={product.picture_url}
