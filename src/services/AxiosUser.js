@@ -15,12 +15,12 @@ export const AxiosShowUser = () => {
     });
 }
 
-export const AxiosUpdateUser = () => {
+export const AxiosUpdateUser = (forminfo) => {
 
-  let forminfo = new FormData();
-  forminfo.append("name", "hola");
-  forminfo.append("phone", "999888777");
-  forminfo.append("address", "av calle 3");
+  // let forminfo = new FormData();
+  // forminfo.append("name", "hola");
+  // forminfo.append("phone", "999888777");
+  // forminfo.append("address", "av calle 3");
 
   return axios('/profile', {
     method: 'PATCH',

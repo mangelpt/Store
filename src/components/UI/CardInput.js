@@ -36,16 +36,16 @@ export const TextArea = styled.textarea`
 export function CardInput({textlabel, name, type, placeholder,value,handleaxios}) {
   return (
     <>
-    <ContainerInput>
-      <Lbl>{textlabel}</Lbl>
-      <Input type={type}
+      <ContainerInput>
+        <Lbl>{textlabel}</Lbl>
+        <Input
+          type={type}
           name={name}
           placeholder={placeholder}
           value={value}
           onChange={handleaxios}
-      >
-      </Input>
-    </ContainerInput>  
+        ></Input>
+      </ContainerInput>
     </>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import  {Input} from "./UI/Input"
-import photo from "./person.png"
+// import photo from "./person.png"
 
 const CardPersonal = styled.div`
   background: #FFFFFF;
@@ -77,40 +77,40 @@ export const TextArea = styled.textarea`
 export function CardPersonalDetails(props) {
   return (
     <CardPersonal>
-            <img src={photo} alt="profile"/>
-            <form>
-                <Input
-                type="text"
-                name="name"
-                value="Margarita"
-                placeholder="name"
-                disabled="disabled"
-                />
-                <div />
-                <Input
-                type="email"
-                name="email"
-                value="margrita@mail.com"
-                placeholder="email"
-                disabled="disabled"
-                />
-                <div />
-                <Input
-                type="number"
-                name="phone"
-                value="855324155"
-                placeholder="phone"
-                disabled="disabled"
-                />
-                <div />
-                <TextArea
-                type="text"
-                name="address"
-                value="Jiron ceramixs 324"
-                placeholder="address"
-                disabled="disabled"
-                />
-            </form>
+      <img src={props.avatar_url} alt="profile" />
+      <form>
+        <Input
+          type="text"
+          name="name"
+          value={props.name}
+          placeholder="name"
+          disabled="disabled"
+        />
+        <div />
+        <Input
+          type="email"
+          name="email"
+          value={props.email}
+          placeholder="email"
+          disabled="disabled"
+        />
+        <div />
+        <Input
+          type="number"
+          name="phone"
+          value={props.phone}
+          placeholder="phone"
+          disabled="disabled"
+        />
+        <div />
+        <TextArea
+          type="text"
+          name="address"
+          value={props.address}
+          placeholder="address"
+          disabled="disabled"
+        />
+      </form>
     </CardPersonal>
-  )
+  );
 }
