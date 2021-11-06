@@ -1,13 +1,15 @@
 import styled from '@emotion/styled';
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { FoodDetail } from '../components/FoodDetail'
 import { Footer } from '../components/Footer';
 import { BackHistory } from '../components/UI/BackHistory';
 import { Button } from '../components/UI/Button';
 import { ArrowIcon } from '../components/UI/Icons';
+import { useLocation } from "react-router-dom";
+import { AxiosProductsId } from '../services/AxiosProduct';
+import { Link } from 'react-router-dom';
 
 const StyledDiv = styled.div`
-height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
@@ -19,31 +21,41 @@ gap: 15px;
   display: flex;
   justify-content: center;
 }
+margin-bottom: 174px;
 `;
 
 export const FoodDetails = () => {
+  const location = useLocation();
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    const data = async () => {
+      const response = await AxiosProductsId(location.pathname.split("/")[2]);
+      setProduct(response);
+    }
+    data();
+
+    return setProduct(null);
+  }, [location]);
+
   return (
     <StyledDiv>
       <BackHistory>
-        <button>
+        <Link to="/home">
           <ArrowIcon />
-        </button>
+        </Link>
       </BackHistory>
 
       <div className="container">
         <FoodDetail
-          name="test"
-          price="1243"
-          description="Lorem Ipsum has been the industry's 
-        standard dummy text ever since 
-        the 1500s, when an unknown printer 
-        took a galley of type and scrambled
-         it to make a type specimen book."
-          picture_url="https://d25rq8gxcq0p71.cloudfront.net/dictionary-images/324/meal.jpg"
+          name={product?.name}
+          price={product?.price / 100}
+          description={product?.description}
+          picture_url={product?.picture_url}
         />
       </div>
 
-      <Button text="Add to cart"></Button>
+      <Button text="Add to cart" prefix="foot"/>
 
       <Footer />
 

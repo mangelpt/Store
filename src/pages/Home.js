@@ -1,9 +1,12 @@
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/UI/Navbar";
 import { SearchBar } from "../components/UI/SearchBar";
 import { FoodCard } from "../components/UI/FoodCard";
+import { AxiosIndexProducts } from "../services/AxiosProduct";
+import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Page = styled.div`
   display: flex;
@@ -18,10 +21,16 @@ const List = styled.div`
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 130px;
+  margin-bottom: 160px;
+
+  a {
+    text-decoration: none;
+    color: #333333;
+  }
 `;
 
 const Head = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,30 +41,51 @@ const Head = styled.div`
 `;
 
 export function Home() {
-  const categories = ["Italian", "Mexican", "Snacks", "Soups", "Sushi"];
-  const [tabSelected, setTabSelected] = useState("Italian");
+  const [products, setProducts] = useState([]);
+  const [tabSelected, setTabSelected] = useState("italian");
+  const categories = ["italian", "mexican", "snack", "soups", "sushi"];
+  const [value, setValue] = useState("");
+  const [redirect, setRedirect] = useState(false);
+
+  useEffect(() => {
+    if (value !== "") {
+      setTimeout(() => { setRedirect(true) }, 2000);
+    }
+  }, [value]);
+
+  useEffect(() => {
+    const data = async () => {
+      const response = await AxiosIndexProducts();
+      setProducts(response);
+    }
+    data();
+  }, []);
 
   return (
     <Page>
+      {redirect  && <Redirect to={`/search/${value}`} />}
       <Head>
-        <SearchBar />
+        <SearchBar 
+          value={value}
+          search={setValue}
+        />
         <Navbar
-          categories={[...categories]}
+          categories={categories}
           selected={tabSelected}
           toggleSelected={setTabSelected}
         />
       </Head>
       <List>
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
-        <FoodCard />
+        {products?.filter((product) => product.category === tabSelected).map((product) => (
+          <Link to={`/foods/${product.id}/description`} key={product.id}>
+            <FoodCard
+              key={product.id}
+              image={product.picture_url}
+              name={product.name}
+              price={product.price} 
+            />
+          </Link>
+        ))}
       </List>
       <Footer />
     </Page>

@@ -5,7 +5,7 @@ import { HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 
 const StyledFooter = styled.footer`
 width: 75%;
-padding: 35px;
+padding: 35px 12.5%;
 height: fit-content;
 display: flex;
 background-color: #f6f6f9;
