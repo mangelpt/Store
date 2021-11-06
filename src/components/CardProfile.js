@@ -10,14 +10,19 @@ import { AxiosUpdateUser } from "../services/AxiosUser"
 
 const ContainerForm = styled.form`
     display: flex;
-    flex-direction: row;
-    gap: 4px;
+    flex-direction: column;
+    gap: 150px;
     width: 314px;
     height: 312px;
     background-color:white;
     background: #FFFFFF;
     box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
     border-radius: 20px;
+    .infoPersonal{
+      display: flex;
+      flex-direction: row;
+      gap: 25px;
+    }
 `
 
 const ContainerInfo = styled.div`
@@ -44,6 +49,13 @@ const ConatinerFile = styled.div`
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+
+    .avatar {
+        width: 72px;
+        height: 80px;
+        border-radius: 10px;
+    }
+
     label {
         color: #B8B8BB
     }
@@ -56,6 +68,8 @@ const ConatinerFile = styled.div`
     input[type="file"]{
         display: none;
     }
+
+    
 `
 export function CardProfile(props) {
 
@@ -91,50 +105,54 @@ export function CardProfile(props) {
   return (
     <>
       <ContainerForm onSubmit={handleSubmit}>
-        <ConatinerFile>
-          <label for="file">
-            <img className="avatar" src={props.avatar_url} alt="imagecamera" />
-            Upload image
-          </label>
-          <input
-            id="file"
-            type="file"
-            name="fileimage"
-            accept="image/*"
-            onChange={showPreview}
-          />
-        </ConatinerFile>
-        <ContainerInfo>
-          <CardInput
-            textlabel="Name"
-            name="name"
-            type="text"
-            placeholder={name ? name : props.name}
-          ></CardInput>
-          <CardInput
-            textlabel="Email"
-            name="email"
-            type="email"
-            placeholder={email ? email : props.email}
-          ></CardInput>
-          <CardInput
-            textlabel="Phone"
-            name="phone"
-            type="nuber"
-            placeholder={phone ? phone : props.phone}
-          ></CardInput>
-          <ContainerInput>
-            <Lbl>Address</Lbl>
-            <TextArea
+        <div className="infoPersonal">
+          <ConatinerFile>
+            <label style= {{ "margin-left": -2, "margin-top": -12}} for="file">
+              <img className="avatar" src={props.avatar_url} alt="imagecamera" />
+              Upload image
+            </label>
+            <input
+              id="file"
+              type="file"
+              name="fileimage"
+              accept="image/*"
+              onChange={showPreview}
+            />
+          </ConatinerFile>
+          <ContainerInfo>
+            <CardInput
+              textlabel="Name"
+              name="name"
               type="text"
-              name="address"
-              placeholder={address ? address : props.address}
-              maxLength="140"
-            ></TextArea>
-            <div />
-          </ContainerInput>
-        </ContainerInfo>
-        <Button text="Update" />
+              placeholder={name ? name : props.name}
+            ></CardInput>
+            <CardInput
+              textlabel="Email"
+              name="email"
+              type="email"
+              placeholder={email ? email : props.email}
+            ></CardInput>
+            <CardInput
+              textlabel="Phone"
+              name="phone"
+              type="nuber"
+              placeholder={phone ? phone : props.phone}
+            ></CardInput>
+            <ContainerInput>
+              <Lbl>Address</Lbl>
+              <TextArea
+                type="text"
+                name="address"
+                placeholder={address ? address : props.address}
+                maxLength="140"
+              ></TextArea>
+              <div />
+            </ContainerInput>
+          </ContainerInfo>
+        </div>
+        <div>
+          <Button text="Update" />
+        </div>
       </ContainerForm>
     </>
   );
