@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from "@emotion/styled";
 
 import { BackHistory } from '../components/UI/BackHistory';
-import {ButtonHistory}  from '../components/UI/ButtonHistory';
+import { ButtonHistory } from '../components/UI/ButtonHistory';
 import { ArrowIcon } from '../components/UI/Icons';
 import { Footer } from '../components/Footer';
 import { Button } from '../components/UI/Button';
@@ -11,17 +11,16 @@ import { Labelittle } from '../components/UI/Labels';
 import { AxiosShowUser } from '../services/AxiosUser';
 
 const StyledDiv = styled.div`
-    width: 414px;
-    height: 737px;
+    width: 100vw;
+    height: 84vh;
     align-items: center;
     display: flex;
     flex-direction: column;
-    gap: 22px;
+    gap: 20px;
     justify-content: space-between;
     .container{
     flex: 2;
     display: flex;
-    height: 550px;
     flex-direction: column;
     .optionChange{
         display: flex;
@@ -41,7 +40,7 @@ const StyledDiv = styled.div`
         }
       }
     }
-    margin-top: 50px;
+    margin-top: 20px;
 `
 
 export function Profile(){

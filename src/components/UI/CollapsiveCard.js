@@ -5,6 +5,12 @@ import { ArrowIconDown, ArrowIconUp } from "./Icons";
 export const Collapse = ({ date, amount, total, products, address }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  const orders = products.map(element =>
+    <li>
+      <span> 1 - {element.name} </span>
+      <span>{`$${element.price}`}</span>
+    </li>)
+
   return (
     <Collapsed>
       <div className="content">
@@ -22,12 +28,7 @@ export const Collapse = ({ date, amount, total, products, address }) => {
         <div className="Order">
           <h3>Order</h3>
           <div>
-            <li>
-              <span> 1- veggie tomato mix </span> <span>{`$${15.45}`}</span>
-            </li>
-            <li>
-              <span> 1- veggie tomato mix </span> <span>{`$${15.45}`}</span>
-            </li>
+            {orders}
           </div>
         </div>
         <div className="Delivery">

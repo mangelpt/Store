@@ -3,8 +3,8 @@ import  {CardInput} from "./UI/CardInput"
 // import camera from "./Vector.svg"
 import { Lbl } from "./UI/Labels"
 import { TextArea } from "./UI/CardInput"
+import {useState} from "react"
 import {ContainerInput} from "./UI/CardInput"
-import { useState } from "react"
 import { Button } from "./UI/Button"
 import { AxiosUpdateUser } from "../services/AxiosUser"
 
@@ -93,7 +93,7 @@ export function CardProfile(props) {
       <ContainerForm onSubmit={handleSubmit}>
         <ConatinerFile>
           <label for="file">
-            <img className="avatar" alt="imagecamera" />
+            <img className="avatar" src={props.avatar_url} alt="imagecamera" />
             Upload image
           </label>
           <input

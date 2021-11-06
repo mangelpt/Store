@@ -12,6 +12,7 @@ import { Checkout } from "./pages/Checkout";
 import { FoodDetails } from "./pages/FoodDetails";
 import { UpdateProfile } from "./pages/UpdateProfile";
 import { Results } from "./pages/Results";
+import ProtectedRoute from "./components/routes/ProtectedRoutes";
 
 const cssGlobal = css`
 
@@ -48,14 +49,14 @@ function App() {
           <Route exact path="/" component={Load} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={Signup} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/home" component={Home} />
-          <Route path="/history" component={History} />
-          <Route path="/description" component={FoodDetails} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/checkout" component={Checkout} />
-          <Route path="/updateprofile" component={UpdateProfile} />
-          <Route path="/results" component={Results} />
+          <ProtectedRoute  path="/profile" component={Profile} />
+          <ProtectedRoute  path="/home" component={Home} />
+          <ProtectedRoute  path="/history" component={History} />
+          <ProtectedRoute  path="/foods/:id/description" component={FoodDetails} />
+          <ProtectedRoute  path="/cart" component={Cart} />
+          <ProtectedRoute  path="/checkout" component={Checkout} />
+          <ProtectedRoute  path="/updateprofile" component={UpdateProfile} />
+          <ProtectedRoute  exact path="/search/:query?" component={Results} />
         </Switch>
       </Router>
     </main>

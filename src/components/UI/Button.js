@@ -13,6 +13,11 @@ const Bttn = styled.button`
   text-align: center;
   border: none;
   cursor: pointer;
+  
+  ${props => props.prefix==="foot" && `
+    position: fixed;
+    bottom: 104px;
+  `} 
 
   &:focus {
     outline: none;
@@ -21,6 +26,6 @@ const Bttn = styled.button`
 
 export function Button(props) {
   return (
-    <Bttn onClick={props.fnc}>{props.text}</Bttn>
+    <Bttn onClick={props.fnc} prefix={props.prefix}>{props.text}</Bttn>
   )
 }
