@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled Counter renders correctly 1`] = `
+<div
+  className="css-jb2dxb"
+>
+  <p
+    className="css-6b77mr"
+    onClick={[Function]}
+  >
+    -
+  </p>
+  <div
+    className="css-17boz7m"
+  >
+    1
+  </div>
+  <p
+    className="css-1qd85oh"
+    onClick={[Function]}
+  >
+    +
+  </p>
+</div>
+`;
