@@ -1,11 +1,12 @@
 import { useContext, createContext } from "react";
-import useOrderReducer from "../hooks/useOrderReducer";
+import useOrderReducer from "../reducers/useOrderReducer";
 
 const OrderContext = createContext({
-  order: [],
+  foods: [],
   food: null,
-  setOrder: () => {},
-  setFood: () => {},
+  total: 0,
+  addFood: () => {},
+  removeFood: () => {},
 });
 
 export function useOrderContext() {

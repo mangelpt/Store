@@ -1,9 +1,8 @@
 import styled from "@emotion/styled"
 import { useState } from "react";
 
-export function Counter() {
-
-  const [count, setCount] = useState(1)
+export function Counter(props) {
+  const [count, setCount] = useState(props.count)
   
   const ContainerCount = styled.div`
     width: 52px;

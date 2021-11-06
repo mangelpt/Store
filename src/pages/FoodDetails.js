@@ -8,6 +8,7 @@ import { ArrowIcon } from '../components/UI/Icons';
 import { useLocation } from "react-router-dom";
 import { AxiosProductsId } from '../services/AxiosProduct';
 import { Link } from 'react-router-dom';
+import { useOrderContext } from '../contexts/OrderContext';
 
 const StyledDiv = styled.div`
 width: 100vw;
@@ -27,6 +28,7 @@ margin-bottom: 174px;
 export const FoodDetails = () => {
   const location = useLocation();
   const [product, setProduct] = useState(null);
+  const orderData = useOrderContext();
 
   useEffect(() => {
     const data = async () => {
@@ -37,6 +39,17 @@ export const FoodDetails = () => {
 
     return setProduct(null);
   }, [location]);
+
+  function handleClick() {
+    const food = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      picture: product.picture_url,
+      count: 1,
+    }
+    orderData.addFood(food);
+    }
 
   return (
     <StyledDiv>
@@ -55,7 +68,7 @@ export const FoodDetails = () => {
         />
       </div>
       }
-      <Button text="Add to cart" prefix="foot"/>
+      <Button text="Add to cart" prefix="foot" fnc={handleClick}/>
       <Footer />
 
     </StyledDiv>

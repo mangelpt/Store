@@ -6,18 +6,30 @@ const REMOVE_FOOD = "REMOVE_FOOD";
 function orderReducer(state, action) {
   switch (action.type) {
     case ADD_FOOD:
+      const food = action.food;
+      localStorage.setItem("foods", JSON.stringify([...state.foods, food]));
       return {
         ...state,
         foods: [...state.foods, action.food],
       };
     case REMOVE_FOOD:
+      const foods = state.foods.filter((food) => food.id !== action.id);
+      localStorage.setItem("foods", JSON.stringify(foods));
       return {
         ...state,
-        foods: state.foods.filter((food) => food.id !== action.id),
+        foods: foods,
       };
     default:
       return state;
   }
+}
+
+function initialState(state) {
+  const foods = localStorage.getItem("foods") || null;
+  return {
+    ...state,
+    foods: foods ? JSON.parse(foods) : [],
+  };
 }
 
 export default function useOrderReducer() {
@@ -25,7 +37,7 @@ export default function useOrderReducer() {
     foods: [],
     food: null,
     total: 0,
-  });
+  }, initialState);
 
   return [state, dispatch];
 }

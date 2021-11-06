@@ -1,25 +1,32 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Footer } from '../components/Footer';
 import { TotalPrice } from '../components/TotalPrice';
 import { BackHistory } from '../components/UI/BackHistory';
 import { ArrowIcon } from '../components/UI/Icons';
 import { Button } from '../components/UI/Button';
 import { FoodCart } from '../components/UI/FoodCart';
+import { useOrderContext } from '../contexts/OrderContext';
 
 const StyledDiv = styled.div`
-height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
 align-items: center;
 gap: 10px;
+margin-bottom: 174px;
+
 .container{
-  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 `;
 export function Cart() {
+  const orderData = useOrderContext();
+  const [foods, setFoods] = useState(orderData.foods);
+
   return (
     <StyledDiv>
       <BackHistory >
@@ -29,12 +36,19 @@ export function Cart() {
         Cart
       </BackHistory>
       <div className="container">
-        <FoodCart name="veggie tomato" price={15.45} />
-        <FoodCart name="veggie tomato" price={15.45} />
+        {foods.map((food) =>
+          <FoodCart
+          key={food.id}
+          name={food.name}
+          price={food.price}
+          image={food.picture}
+          count={food.count}
+        />)}
       </div>
       <TotalPrice pricetotal={12.35} />
-      <Button text="Checkout" />
+      <Button text="Checkout" prefix="foot"/>
       <Footer />
     </StyledDiv>
   );
 }
+
