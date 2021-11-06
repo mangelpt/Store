@@ -3,6 +3,7 @@ import  {CardInput} from "./UI/CardInput"
 import camera from "./Vector.svg"
 import { Lbl } from "./UI/Labels"
 import { TextArea } from "./UI/CardInput"
+import {useState} from "react"
 import {ContainerInput} from "./UI/CardInput"
 
 const ContainerForm = styled.form`
@@ -51,16 +52,27 @@ const ConatinerFile = styled.div`
 `
 export function CardProfile() {
 
-
+    const [imageurl, setImageUrl] = useState(camera);
+    function showPreview(event) {
+        if (event.target.files.length > 0) {
+          var src = URL.createObjectURL(event.target.files[0]);
+          var preview = document.querySelector(".avatar");
+          preview.src = src;
+          //preview.style.display = "block";
+          console.log(event.target.files[0].name)
+          console.log(src)
+          setImageUrl(event.target.files[0]);
+        }
+      }
   return (
     <>
         <ContainerForm>
             <ConatinerFile>
                <label for="file">
-                    <img src={camera} alt="imagecamera" />
+                    <img className="avatar" src={imageurl} alt="imagecamera" />
                     Upload image
                </label>
-               <input id="file" type="file" name="file" />
+               <input id="file" type="file" name="file" accept="image/*" onChange={showPreview} />
             </ConatinerFile>
             <ContainerInfo>
                 <CardInput 
