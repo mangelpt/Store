@@ -18,18 +18,17 @@ const BtnIcon = styled.button`
 
 export function SearchBar(props) {
   const location = useLocation();
-
   return (
     <BackHistory justify="space-between">
       <Search>
         <BtnIcon>
-          {location.pathname.split("/")[1] === "search" ? 
-            <Link to="/home"><ArrowIcon/></Link> : 
+          {location.pathname.split("/")[1] === "search" ?
+            <Link to="/home"><ArrowIcon /></Link> :
             <Link to={`/search/${props.value}`}>
-              <SearchIconBar/>
+              <SearchIconBar />
             </Link>}
         </BtnIcon>
-        <Input 
+        <Input
           type="text"
           name="food"
           placeholder="Search"
