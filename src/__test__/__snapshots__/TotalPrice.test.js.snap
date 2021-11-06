@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled Footer renders correctly 1`] = `
+<div
+  className="css-ca2rxh"
+>
+  <p>
+    Total:
+  </p>
+  <label>
+    $undefined
+  </label>
+</div>
+`;
