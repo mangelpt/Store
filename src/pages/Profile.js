@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from "@emotion/styled";
 
 import { BackHistory } from '../components/UI/BackHistory';
@@ -8,6 +8,7 @@ import { Footer } from '../components/Footer';
 import { Button } from '../components/UI/Button';
 import { CardPersonalDetails } from '../components/CardPersonalDetails';
 import { Labelittle } from '../components/UI/Labels';
+import { AxiosShowUser } from '../services/AxiosUser';
 
 const StyledDiv = styled.div`
     width: 100vw;
@@ -42,7 +43,14 @@ const StyledDiv = styled.div`
     margin-top: 20px;
 `
 
-export function Profile() {
+export function Profile(){
+
+  const [infouser, SetInfouser] = React.useState([]);
+
+  useEffect(() => {
+    AxiosShowUser().then(datauser => SetInfouser(datauser));
+  },[])
+
   return (
     <StyledDiv>
       <BackHistory>
@@ -53,16 +61,20 @@ export function Profile() {
       </BackHistory>
       <div className="container">
         <div className="optionChange">
-          <Labelittle>
-            {"Personal details"}
-          </Labelittle>
+          <Labelittle>{"Personal details"}</Labelittle>
           <a href="/updateprofile">change</a>
         </div>
-        <CardPersonalDetails />
+        <CardPersonalDetails
+          name={infouser.name}
+          email={infouser.email}
+          phone={infouser.phone}
+          address={infouser.address}
+          avatar_url={infouser.avatar_url}
+        />
         <ButtonHistory />
       </div>
       <Button text="Logout" />
       <Footer />
     </StyledDiv>
-  )
+  );
 }

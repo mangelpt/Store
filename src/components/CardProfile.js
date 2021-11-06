@@ -1,10 +1,12 @@
 import styled from "@emotion/styled"
 import  {CardInput} from "./UI/CardInput"
-import camera from "./Vector.svg"
+// import camera from "./Vector.svg"
 import { Lbl } from "./UI/Labels"
 import { TextArea } from "./UI/CardInput"
 import {useState} from "react"
 import {ContainerInput} from "./UI/CardInput"
+import { Button } from "./UI/Button"
+import { AxiosUpdateUser } from "../services/AxiosUser"
 
 const ContainerForm = styled.form`
     display: flex;
@@ -46,69 +48,94 @@ const ConatinerFile = styled.div`
         color: #B8B8BB
     }
 
+    label img {
+        width: 91px;
+        height: 100px;
+    }
+
     input[type="file"]{
         display: none;
     }
 `
-export function CardProfile() {
+export function CardProfile(props) {
 
-    const [imageurl, setImageUrl] = useState(camera);
+    const [name, SetName] = useState(props.name);
+    const [email,SetEmail] = useState(props.email);
+    const [phone,SetPhone] = useState(props.password);
+    const [address,SetAddress] = useState(props.address);
+
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        let forminfo = new FormData();
+        forminfo.append("avatar", e.target.elements.fileimage.files[0]);
+        forminfo.append("name", e.target.elements.name.value);
+        forminfo.append("phone", e.target.elements.phone.value);
+        forminfo.append("address", e.target.elements.address.value);
+
+        AxiosUpdateUser(forminfo).then(data => console.log(data));
+    }
+
+
     function showPreview(event) {
-        if (event.target.files.length > 0) {
-          var src = URL.createObjectURL(event.target.files[0]);
-          var preview = document.querySelector(".avatar");
-          preview.src = src;
-          //preview.style.display = "block";
-          console.log(event.target.files[0].name)
-          console.log(src)
-          setImageUrl(event.target.files[0]);
+      if (event.target.files.length > 0) {
+        const src = URL.createObjectURL(event.target.files[0]);
+        const preview = document.querySelector(".avatar");
+        preview.src = src;
+        preview.onload = function() {
+          URL.revokeObjectURL(this.src);
         }
       }
+    }
+
   return (
     <>
-        <ContainerForm>
-            <ConatinerFile>
-               <label for="file">
-                    <img className="avatar" src={imageurl} alt="imagecamera" />
-                    Upload image
-               </label>
-               <input id="file" type="file" name="file" accept="image/*" onChange={showPreview} />
-            </ConatinerFile>
-            <ContainerInfo>
-                <CardInput 
-                            textlabel="Name"
-                            name="name"
-                            type="text"
-                            placeholder="Margarita"
-                            
-                            >
-                </CardInput> 
-                <CardInput 
-                            textlabel="Email"
-                            name="email"
-                            type="email"
-                            placeholder="margarita@gmail.com"
-                            >
-                </CardInput> 
-                <CardInput 
-                            textlabel="Phone"
-                            name="phone"
-                            type="nuber"
-                            placeholder="987654321"
-                            >
-                </CardInput> 
-                <ContainerInput>
-                    <Lbl>Address</Lbl>
-                    <TextArea type="text"
-                        name="address"
-                        placeholder="Calle el rosal, urb. el Jardin"
-                        maxLength="140"
-                    >
-                    </TextArea>
-                    <div />
-                </ContainerInput>
-            </ContainerInfo>
-        </ContainerForm>
+      <ContainerForm onSubmit={handleSubmit}>
+        <ConatinerFile>
+          <label for="file">
+            <img className="avatar" src={props.avatar_url} alt="imagecamera" />
+            Upload image
+          </label>
+          <input
+            id="file"
+            type="file"
+            name="fileimage"
+            accept="image/*"
+            onChange={showPreview}
+          />
+        </ConatinerFile>
+        <ContainerInfo>
+          <CardInput
+            textlabel="Name"
+            name="name"
+            type="text"
+            placeholder={name ? name : props.name}
+          ></CardInput>
+          <CardInput
+            textlabel="Email"
+            name="email"
+            type="email"
+            placeholder={email ? email : props.email}
+          ></CardInput>
+          <CardInput
+            textlabel="Phone"
+            name="phone"
+            type="nuber"
+            placeholder={phone ? phone : props.phone}
+          ></CardInput>
+          <ContainerInput>
+            <Lbl>Address</Lbl>
+            <TextArea
+              type="text"
+              name="address"
+              placeholder={address ? address : props.address}
+              maxLength="140"
+            ></TextArea>
+            <div />
+          </ContainerInput>
+        </ContainerInfo>
+        <Button text="Update" />
+      </ContainerForm>
     </>
-  )
+  );
 }
