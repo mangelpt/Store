@@ -45,7 +45,7 @@ export const FoodDetails = () => {
           <ArrowIcon />
         </Link>
       </BackHistory>
-
+      {product &&
       <div className="container">
         <FoodDetail
           name={product?.name}
@@ -54,9 +54,8 @@ export const FoodDetails = () => {
           picture_url={product?.picture_url}
         />
       </div>
-
+      }
       <Button text="Add to cart" prefix="foot"/>
-
       <Footer />
 
     </StyledDiv>
