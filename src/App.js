@@ -53,13 +53,14 @@ function App() {
           <ProtectedRoute  path="/profile" component={Profile} />
           <ProtectedRoute  path="/home" component={Home} />
           <ProtectedRoute  path="/history" component={History} />
+          <ProtectedRoute  path="/updateprofile" component={UpdateProfile} />
+          <ProtectedRoute  exact path="/search/:query?" component={Results} />
           <OrderProvider>
             <ProtectedRoute  path="/foods/:id/description" component={FoodDetails} />
             <ProtectedRoute  path="/cart" component={Cart} />
             <ProtectedRoute  path="/checkout" component={Checkout} />
           </OrderProvider>
-          <ProtectedRoute  path="/updateprofile" component={UpdateProfile} />
-          <ProtectedRoute  exact path="/search/:query?" component={Results} />
+          
         </Switch>
       </Router>
     </main>
