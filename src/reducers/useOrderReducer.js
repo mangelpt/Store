@@ -2,6 +2,7 @@ import { useReducer } from "react";
 
 const ADD_FOOD = "ADD_FOOD";
 const REMOVE_FOOD = "REMOVE_FOOD";
+const CHANGE_COUNT = "CHANGE_COUNT";
 
 function orderReducer(state, action) {
   switch (action.type) {
@@ -11,6 +12,20 @@ function orderReducer(state, action) {
       return {
         ...state,
         foods: [...state.foods, action.food],
+      };
+    case CHANGE_COUNT:
+      console.log(action);
+      const { foodId, count } = action;
+      const changedFoods = state.foods.map((food) => { 
+        if (food.id === foodId) {
+          return { ...food, count };
+        }
+        return food;
+      });
+      localStorage.setItem("foods", JSON.stringify(changedFoods));
+      return {
+        ...state,
+        foods: changedFoods,
       };
     case REMOVE_FOOD:
       const foods = state.foods.filter((food) => food.id !== action.id);

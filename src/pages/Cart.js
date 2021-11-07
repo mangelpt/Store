@@ -39,13 +39,18 @@ export function Cart() {
         {foods.map((food) =>
           <FoodCart
           key={food.id}
+          id={food.id}
           name={food.name}
           price={food.price}
           image={food.picture}
           count={food.count}
+          getCount={orderData.changeCount}
+          deleteFood={orderData.removeFood}
         />)}
       </div>
-      <TotalPrice pricetotal={12.35} />
+      <TotalPrice pricetotal={
+        (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
+      } />
       <Button text="Checkout" prefix="foot"/>
       <Footer />
     </StyledDiv>

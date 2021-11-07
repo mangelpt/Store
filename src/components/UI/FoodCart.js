@@ -51,7 +51,14 @@ export function FoodCart(props) {
       <ItemImage src={props.image} alt={props.name} />
       <ItemDescription>
         <ItemName>{props.name}</ItemName>
-        <ItemPrice>${props.price / 100}<Counter count={props.count} /></ItemPrice>
+        <ItemPrice>${props.price / 100}
+          <Counter
+            foodId={props.id}
+            count={props.count}
+            getCount={props.getCount}
+            deleteFood={props.deleteFood}
+          />
+        </ItemPrice>
       </ItemDescription>
     </CartItem>
   );

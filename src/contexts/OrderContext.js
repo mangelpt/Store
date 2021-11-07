@@ -7,6 +7,7 @@ const OrderContext = createContext({
   total: 0,
   addFood: () => {},
   removeFood: () => {},
+  changeCount: () => {},
 });
 
 export function useOrderContext() {
@@ -28,10 +29,15 @@ export default function OrderProvider({ children }) {
     dispatch({ type: "REMOVE_FOOD", id });
   }
 
+  function changeCount(foodId, count) {
+    dispatch({ type: "CHANGE_COUNT", foodId, count });
+  }
+
   const value = {
     ...order,
     addFood,
     removeFood,
+    changeCount,
   };
 
   return (

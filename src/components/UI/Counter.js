@@ -50,11 +50,19 @@ export function Counter(props) {
   `;
 
   function handleClickLeast() {
-    setCount(count - 1)
+    const minus = count - 1;
+    if (minus > 0) {
+      setCount(minus);
+      props.getCount(props.foodId, minus);
+    } else {
+      props.deleteFood(props.foodId);
+    }
   }
 
   function handleClickSum() {
-    setCount(count + 1)
+    const plus = count + 1
+    setCount(plus);
+    props.getCount(props.foodId, plus)
   }
 
   return (
