@@ -13,7 +13,6 @@ const StyledDiv = styled.div`
 width: 100vw;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
 align-items: center;
 gap: 10px;
 margin-bottom: 174px;

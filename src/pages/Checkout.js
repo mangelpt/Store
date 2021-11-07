@@ -10,33 +10,42 @@ import { Link, Redirect } from 'react-router-dom';
 import { useOrderContext } from '../contexts/OrderContext';
 
 const StyledDiv = styled.div`
-height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
-gap: 10px;
-span{
-  width: 85vw;
-  display: flex;
-  justify-content: space-between;
-  button{
-    border: none;
-    color: #FA4A0C;
-    font-weight:bold;
-    background-color: transparent;
-    cursor: pointer;
-  }
-}
-h3{
-  font-size: 20px;
-  align-self: flex-start;
-  margin-left: calc(100VW - 380px);
-  margin-bottom: 15px;
-}
+
 .container{
-  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3{
+    margin-top: 13px;
+    font-size: 20px;
+    align-self: flex-start;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 35px;
+  }
+
+  span{
+    align-self: center;
+    width: 315px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 17px;
+  
+    button{
+      border: none;
+      color: #FA4A0C;
+      font-weight:bold;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
 }
 `;
 export function Checkout() {
@@ -51,18 +60,18 @@ export function Checkout() {
         </Link>
         Checkout
       </BackHistory>
-      <h3>Delivery</h3>
-      <span>
-        <p>Address details </p>
-        <button>change</button>
-      </span>
       <div className="container">
+        <h3>Delivery</h3>
+        <span>
+          <p>Address details </p>
+          <button>change</button>
+        </span>
         <CheckoutCard />
       </div>
       <TotalPrice pricetotal={
         (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
       } />
-      <Button text="Complete Order" />
+      <Button prefix="foot" text="Complete Order" />
       <Footer />
     </StyledDiv>
   );

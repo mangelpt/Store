@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export function TotalPrice({ pricetotal }) {
 
   const ContainerPrice = styled.div`
-    width: 75vw;
+    width: 315px;
     height: 80px;
     display: flex;
     align-items: center;
