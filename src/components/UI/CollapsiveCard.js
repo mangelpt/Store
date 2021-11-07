@@ -6,7 +6,7 @@ export const Collapse = ({ date, amount, total, products, address }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const orders = products.map(element =>
-    <li>
+    <li key={element.name+Math.random(400)}>
       <span> 1 - {element.name} </span>
       <span>{`$${element.price}`}</span>
     </li>)

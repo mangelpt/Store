@@ -33,7 +33,7 @@ export const TextArea = styled.textarea`
   border-bottom: 1px solid black;
 `;
 
-export function CardInput({textlabel, name, type, placeholder,value,handleaxios}) {
+export function CardInput({textlabel, disabled, name, type, placeholder,value,handleaxios}) {
   return (
     <>
       <ContainerInput>
@@ -44,6 +44,7 @@ export function CardInput({textlabel, name, type, placeholder,value,handleaxios}
           placeholder={placeholder}
           value={value}
           onChange={handleaxios}
+          disabled={disabled}
         ></Input>
       </ContainerInput>
     </>

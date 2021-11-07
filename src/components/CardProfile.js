@@ -79,17 +79,22 @@ export function CardProfile(props) {
     const [email,SetEmail] = useState(props.email);
     const [phone,SetPhone] = useState(props.password);
     const [address,SetAddress] = useState(props.address);
-
+    const history =  useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
         let forminfo = new FormData();
-        forminfo.append("avatar", e.target.elements.fileimage.files[0]);
-        forminfo.append("name", e.target.elements.name.value);
-        forminfo.append("phone", e.target.elements.phone.value);
-        forminfo.append("address", e.target.elements.address.value);
+        let newavatar = e.target.elements.fileimage.files[0];
+        let newname = e.target.elements.name.value;
+        let newphone = e.target.elements.phone.value;
+        let newaddress = e.target.elements.address.value;
+        newavatar && forminfo.append("avatar", newavatar);
+        newname && forminfo.append("name", newname);
+        newphone && forminfo.append("phone", newphone);
+        newaddress && forminfo.append("address", newaddress);
 
         AxiosUpdateUser(forminfo).then(data => console.log(data));
+        history.push("/profile");
     }
 
 
@@ -102,10 +107,6 @@ export function CardProfile(props) {
           URL.revokeObjectURL(this.src);
         }
       }
-    }
-    const history =  useHistory();
-    function handleProfile(){
-      history.push("/profile");
     }
 
   return (
@@ -137,6 +138,7 @@ export function CardProfile(props) {
               name="email"
               type="email"
               placeholder={email ? email : props.email}
+              disabled={true}
             ></CardInput>
             <CardInput
               textlabel="Phone"
@@ -157,7 +159,7 @@ export function CardProfile(props) {
           </ContainerInfo>
         </div>
         <div>
-          <Button text="Update" fnc={handleProfile} />
+          <Button text="Update"/>
         </div>
       </ContainerForm>
     </>
