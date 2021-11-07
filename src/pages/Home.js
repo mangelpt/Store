@@ -76,7 +76,7 @@ export function Home() {
         />
       </Head>
       <List>
-        {products?.filter((product) => product.category === tabSelected).map((product) => (
+        {products && products.filter((product) => product.category === tabSelected).map((product) => (
           <Link to={`/foods/${product.id}/description`} key={product.id}>
             <FoodCard
               key={product.id}

@@ -1,9 +1,10 @@
 import styled from "@emotion/styled"
 import { useState } from "react";
+import { useOrderContext } from "../../contexts/OrderContext";
 
-export function Counter() {
-
-  const [count, setCount] = useState(1)
+export function Counter(props) {
+  const orderData = useOrderContext();
+  const [count, setCount] = useState(props.count)
   
   const ContainerCount = styled.div`
     width: 52px;
@@ -51,11 +52,19 @@ export function Counter() {
   `;
 
   function handleClickLeast() {
-    setCount(count - 1)
+    const minus = count - 1;
+    if (minus > 0) {
+      setCount(minus);
+      orderData.changeCount(props.foodId, minus);
+    } else {
+      orderData.removeFood(props.foodId);
+    }
   }
 
   function handleClickSum() {
-    setCount(count + 1)
+    const plus = count + 1
+    setCount(plus);
+    orderData.changeCount(props.foodId, plus);
   }
 
   return (

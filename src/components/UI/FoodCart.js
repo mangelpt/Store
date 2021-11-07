@@ -5,13 +5,12 @@ const CartItem = styled.div`
   display: flex;
   padding: 20px;
   gap: 20px;
-  width: 315px;
+  width: 295px;
   height: 62px;
   background: #FFFFFF;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
   position: relative;
-  margin-bottom: 12px;
 `;
 
 const ItemImage = styled.img`
@@ -52,7 +51,12 @@ export function FoodCart(props) {
       <ItemImage src={props.image} alt={props.name} />
       <ItemDescription>
         <ItemName>{props.name}</ItemName>
-        <ItemPrice>{props.price}<Counter /></ItemPrice>
+        <ItemPrice>${props.price / 100}
+          <Counter
+            foodId={props.id}
+            count={props.count}
+          />
+        </ItemPrice>
       </ItemDescription>
     </CartItem>
   );

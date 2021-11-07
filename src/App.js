@@ -13,6 +13,7 @@ import { FoodDetails } from "./pages/FoodDetails";
 import { UpdateProfile } from "./pages/UpdateProfile";
 import { Results } from "./pages/Results";
 import ProtectedRoute from "./components/routes/ProtectedRoutes";
+import OrderProvider from "./contexts/OrderContext";
 
 const cssGlobal = css`
 
@@ -52,9 +53,11 @@ function App() {
           <ProtectedRoute  path="/profile" component={Profile} />
           <ProtectedRoute  path="/home" component={Home} />
           <ProtectedRoute  path="/history" component={History} />
-          <ProtectedRoute  path="/foods/:id/description" component={FoodDetails} />
-          <ProtectedRoute  path="/cart" component={Cart} />
-          <ProtectedRoute  path="/checkout" component={Checkout} />
+          <OrderProvider>
+            <ProtectedRoute  path="/foods/:id/description" component={FoodDetails} />
+            <ProtectedRoute  path="/cart" component={Cart} />
+            <ProtectedRoute  path="/checkout" component={Checkout} />
+          </OrderProvider>
           <ProtectedRoute  path="/updateprofile" component={UpdateProfile} />
           <ProtectedRoute  exact path="/search/:query?" component={Results} />
         </Switch>

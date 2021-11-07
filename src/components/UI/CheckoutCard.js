@@ -4,11 +4,11 @@ const Checkout = styled.div`
   background: #FFFFFF;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
-  padding: 25px 30px 20px 30px;
-  width: 315px;
+  padding: 25px 53px 20px 30px;
+  width: 232px;
   margin-bottom: 10px;
   form {
-    width: 233px;
+    width: 232px;
     display: flex;
     flex-direction: column;
   }
@@ -46,25 +46,28 @@ export function CheckoutCard(props) {
           type="text"
           name="name"
           value={props.name}
-          onChange={props.handleChange}
           placeholder="name"
-          disabled={props.disabled} />
+          onChange={props.onChange}
+          disabled={props.disabled}
+        />
         <div />
         <input
           type="text"
           name="address"
           value={props.address}
-          onChange={props.handleChange}
-          placeholder="address"
-          disabled={props.disabled} />
+          onChange={props.onChange}
+          placeholder="address" 
+          disabled={props.disabled}
+        />
         <div />
         <input
           type="tel"
           name="phone"
           value={props.phone}
-          onChange={props.handleChange}
           placeholder="phone"
-          disabled={props.disabled} />
+          onChange={props.onChange}
+          disabled={props.disabled}
+        />
       </form>
     </Checkout>
   )
