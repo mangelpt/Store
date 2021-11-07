@@ -3,11 +3,6 @@ import styled from '@emotion/styled';
 import { CardInput } from '../components/UI/CardInput';
 import { Button } from '../components/UI/Button';
 import { AxiosLogin } from '../services/AxiosLogin';
-import { useState } from 'react';
-// import { OrderProducts, ShowOrders } from "../services/OrderProducts"
-// import { AxiosIndexProducts, AxiosProductsId } from '../services/AxiosProduct';
-// import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
-import { NavLink } from "react-router-dom";
 import { useHistory } from "react-router";
 const Page = styled.div`
   width: 100vw;
@@ -45,13 +40,7 @@ export default function Login() {
       const password = e.target.elements.password.value;
       const response= await AxiosLogin({email: email, password: password});
        sessionStorage.setItem('token', await JSON.stringify(response.token))
-    // await OrderProducts({date: "2021-03-18", address: "jr ceramicas 360", product_ids:[8]}).then(data => console.log(data));
-    // await ShowOrders().then(data => console.log(data));
-    // await AxiosIndexProducts().then(data => console.log(data));
-    // await AxiosProductsId(1).then(data => console.log(data));
-    // await AxiosShowUser().then(data => console.log(data, "showuser"));
-    // await AxiosUpdateUser().then(data => console.log(data, "updateuser"));
-    if (!response.token) return;
+   if (!response.token) return;
     history.push("/home");
   }
 

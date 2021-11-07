@@ -7,6 +7,8 @@ import {useState} from "react"
 import {ContainerInput} from "./UI/CardInput"
 import { Button } from "./UI/Button"
 import { AxiosUpdateUser } from "../services/AxiosUser"
+import { useHistory } from 'react-router';
+
 
 const ContainerForm = styled.form`
     display: flex;
@@ -101,6 +103,10 @@ export function CardProfile(props) {
         }
       }
     }
+    const history =  useHistory();
+    function handleProfile(){
+      history.push("/profile");
+    }
 
   return (
     <>
@@ -151,7 +157,7 @@ export function CardProfile(props) {
           </ContainerInfo>
         </div>
         <div>
-          <Button text="Update" />
+          <Button text="Update" fnc={handleProfile} />
         </div>
       </ContainerForm>
     </>

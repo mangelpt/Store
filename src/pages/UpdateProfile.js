@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { BackHistory } from '../components/UI/BackHistory';
 import { ArrowIcon } from '../components/UI/Icons';
 import { Footer } from '../components/Footer';
-import { Button } from '../components/UI/Button';
+import { useHistory } from 'react-router';
 import { CardProfile } from '../components/CardProfile';
 import { Labelittle } from '../components/UI/Labels';
 import { AxiosShowUser } from '../services/AxiosUser';
@@ -26,17 +26,21 @@ const StyledDiv = styled.div`
 `
 
 export function UpdateProfile(){
-
+  const history = useHistory();
   const [infouser, SetInfouser] = useState([]);
 
   useEffect(() => {
     AxiosShowUser().then(datauser => SetInfouser(datauser));
   },[])
 
+  function backProfile(){
+    history.push("/profile");
+  }
+
   return (
     <StyledDiv>
       <BackHistory>
-        <button>
+        <button  onClick={backProfile}>
           <ArrowIcon />
         </button>
         {"My Profile"}

@@ -10,7 +10,6 @@ import { CardPersonalDetails } from '../components/CardPersonalDetails';
 import { Labelittle } from '../components/UI/Labels';
 import { AxiosShowUser } from '../services/AxiosUser';
 import { useHistory } from 'react-router';
-import { NavLink } from 'react-router-dom';
 
 const StyledDiv = styled.div`
     width: 100vw;
@@ -50,12 +49,6 @@ export function Profile(){
   const [infouser, SetInfouser] = React.useState([]);
   const history = useHistory();
 
-  /*useEffect(() => {
-    AxiosShowUser().then(datauser => {SetInfouser(datauser);
-      console.log(datauser);
-    });
-    
-  },[])*/
   useEffect(() => {
     async function GetData() {
       const data = await AxiosShowUser();
@@ -65,16 +58,18 @@ export function Profile(){
   },[]);
 
   function handlelogout() {
-    console.log("hola")
     sessionStorage.removeItem("token");
     history.push("/login");
   }
 
+  function backHome(){
+    history.push("/home");
+  }
 
   return (
     <StyledDiv>
       <BackHistory>
-        <button>
+        <button onClick={backHome}>
           <ArrowIcon />
         </button>
         {"My Profile"}
