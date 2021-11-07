@@ -49,8 +49,6 @@ function initialState(state) {
 export default function useOrderReducer() {
   const [state, dispatch] = useReducer(orderReducer, {
     foods: [],
-    food: null,
-    total: 0,
   }, initialState);
 
   return [state, dispatch];

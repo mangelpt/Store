@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled Label renders correctly 1`] = `
+<div
+  className="css-1mjgp85"
+  style={
+    Object {
+      "justifyContent": "undefined",
+    }
+  }
+>
+  My title
+</div>
+`;

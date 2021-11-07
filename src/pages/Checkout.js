@@ -8,7 +8,8 @@ import { Button } from '../components/UI/Button';
 import { CheckoutCard } from '../components/UI/CheckoutCard';
 import { Link, Redirect } from 'react-router-dom';
 import { useOrderContext } from '../contexts/OrderContext';
-import { AxiosShowUser } from '../services/AxiosUser';
+import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
+import { OrderProducts } from '../services/OrderProducts';
 
 const StyledDiv = styled.div`
 width: 100vw;
@@ -53,6 +54,7 @@ export function Checkout() {
   const orderData = useOrderContext();
   const foods = orderData.foods;
   const [disableInput, setDisableInput] = useState(true);
+  const [redirect, setRedirect] = useState(false);
   const [infouser, SetInfouser] = useState({
     name: "",
     phone: "",
@@ -72,9 +74,34 @@ export function Checkout() {
     setDisableInput(!disableInput);
   }
 
+  async function handleSubmit (event) {
+    event.preventDefault();
+    let forminfo = new FormData();
+    forminfo.append("name", infouser.name);
+    forminfo.append("phone", infouser.phone);
+    forminfo.append("address", infouser.address);
+    await AxiosUpdateUser(forminfo).then(data => {
+      console.log(data);
+    });
+    let foodIds = [];
+    orderData.foods.forEach(food => {
+      let times = food.count;
+      for (let i = 0; i < times; i++) {foodIds.push(food.id)};
+    });
+    let today = new Date();
+    let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    let order = {
+      date: date,
+      address: infouser.address,
+      product_ids: foodIds,
+    }
+    await OrderProducts(order).then(localStorage.removeItem('foods'));
+    setRedirect(true);
+  }
+
   return (
     <StyledDiv>
-      {console.log(infouser)}
+      {redirect && <Redirect to={"/history"} />}
       <BackHistory>
         <Link to="/cart">
           <ArrowIcon />
@@ -98,7 +125,7 @@ export function Checkout() {
       <TotalPrice pricetotal={
         (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
       } />
-      <Button prefix="foot" text="Complete Order" />
+      <Button prefix="foot" text="Complete Order" fnc={handleSubmit} />
       <Footer />
     </StyledDiv>
   );

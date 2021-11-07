@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled Label renders correctly 1`] = `
+<label
+  className="css-h2hxnu"
+>
+  My title
+</label>
+`;
+
+exports[`Styled Label renders correctly 2`] = `
+<label
+  className="css-bxz1r7"
+>
+  My title
+</label>
+`;

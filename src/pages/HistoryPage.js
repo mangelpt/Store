@@ -5,8 +5,9 @@ import { ArrowIcon } from '../components/UI/Icons';
 import { Footer } from '../components/Footer';
 import { Collapse } from '../components/UI/CollapsiveCard';
 import { ShowOrders } from '../services/OrderProducts';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { HistoryEmpty } from '../components/UI/HistoryEmpty';
+
 
 const StyledDiv = styled.div`
 height: 100vh;
@@ -28,12 +29,18 @@ export const History = () => {
     fetchHistory();
   }, [history])
 
+  let Hs = useHistory()
+  const handleClick = () => {
+    Hs.push("checkout")
+  }
+
   return (
     <StyledDiv>
       <BackHistory >
-        <Link to="checkout">
+        <button onClick={handleClick}>
           <ArrowIcon />
-        </Link>
+        </button>
+
         History
       </BackHistory>
       {
@@ -52,5 +59,8 @@ export const History = () => {
       }
       <Footer />
     </StyledDiv>
+
+
+
   )
 }

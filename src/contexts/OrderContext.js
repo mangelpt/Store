@@ -3,8 +3,6 @@ import useOrderReducer from "../reducers/useOrderReducer";
 
 const OrderContext = createContext({
   foods: [],
-  food: null,
-  total: 0,
   addFood: () => {},
   removeFood: () => {},
   changeCount: () => {},
