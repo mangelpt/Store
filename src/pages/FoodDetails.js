@@ -49,7 +49,7 @@ export const FoodDetails = () => {
       count: 1,
     }
     orderData.addFood(food);
-    }
+    } 
 
   return (
     <StyledDiv>
@@ -68,7 +68,12 @@ export const FoodDetails = () => {
         />
       </div>
       }
-      <Button text="Add to cart" prefix="foot" fnc={handleClick}/>
+      {product && orderData.foods.filter(item => item.id === product.id).length === 0 ?
+        <Button text="Add to cart" prefix="foot" fnc={handleClick}/> :
+        <Link to="/cart">
+          <Button text="Go to cart"/>
+        </Link>
+      }
       <Footer />
 
     </StyledDiv>

@@ -14,7 +14,6 @@ function orderReducer(state, action) {
         foods: [...state.foods, action.food],
       };
     case CHANGE_COUNT:
-      console.log(action);
       const { foodId, count } = action;
       const changedFoods = state.foods.map((food) => { 
         if (food.id === foodId) {
