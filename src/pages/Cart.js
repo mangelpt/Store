@@ -25,7 +25,11 @@ margin-bottom: 174px;
 `;
 export function Cart() {
   const orderData = useOrderContext();
-  const [foods, setFoods] = useState(orderData.foods);
+  const [foods, setFoods] = useState([]);
+
+  useEffect(() => {
+    setFoods(orderData.foods);
+  }, [orderData.foods]);
 
   return (
     <StyledDiv>
@@ -44,8 +48,6 @@ export function Cart() {
           price={food.price}
           image={food.picture}
           count={food.count}
-          getCount={orderData.changeCount}
-          deleteFood={orderData.removeFood}
         />)}
       </div>
       <TotalPrice pricetotal={

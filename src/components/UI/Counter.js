@@ -1,7 +1,9 @@
 import styled from "@emotion/styled"
 import { useState } from "react";
+import { useOrderContext } from "../../contexts/OrderContext";
 
 export function Counter(props) {
+  const orderData = useOrderContext();
   const [count, setCount] = useState(props.count)
   
   const ContainerCount = styled.div`
@@ -53,16 +55,16 @@ export function Counter(props) {
     const minus = count - 1;
     if (minus > 0) {
       setCount(minus);
-      props.getCount(props.foodId, minus);
+      orderData.changeCount(props.foodId, minus);
     } else {
-      props.deleteFood(props.foodId);
+      orderData.removeFood(props.foodId);
     }
   }
 
   function handleClickSum() {
     const plus = count + 1
     setCount(plus);
-    props.getCount(props.foodId, plus)
+    orderData.changeCount(props.foodId, plus);
   }
 
   return (

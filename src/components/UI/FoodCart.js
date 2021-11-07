@@ -55,8 +55,6 @@ export function FoodCart(props) {
           <Counter
             foodId={props.id}
             count={props.count}
-            getCount={props.getCount}
-            deleteFood={props.deleteFood}
           />
         </ItemPrice>
       </ItemDescription>
