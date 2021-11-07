@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useState }from 'react'
 import { NavLink, BrowserRouter as Router, Link } from 'react-router-dom'
 import { HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
 import { useHistory } from "react-router";
@@ -11,10 +11,11 @@ height: fit-content;
 display: flex;
 background-color: #f6f6f9;
 justify-content:space-between;
+
 svg{
   width: 30px;
-  color: gray;
 }
+
 position: fixed;
 bottom: 0;
 z-index: 3;
@@ -23,7 +24,9 @@ z-index: 3;
   }
 `;
 
-export const Footer = () => {
+export const Footer = (props) => {
+  const selected = props.selected;
+
   const history = useHistory();
   const gotoProfile = () => {
     history.push('/profile')
@@ -39,14 +42,14 @@ export const Footer = () => {
     <>
       <StyledFooter>
         <Router>
-         <div id="home" onClick={gotoHome}>
-            <HomeIcon />
+         <div id="home"  onClick={gotoHome}>
+            <HomeIcon selected={selected === "home" ? true : false}/>
           </div>
-          <div  id="profile"  onClick={gotoProfile}>
-            <UserIcon/>
+          <div  id="profile" onClick={gotoProfile}>
+            <UserIcon selected={selected === "profile" ? true : false} />
           </div>
-          <div  id="history"  onClick={gotoHistory}>
-            <HistoryIcon />
+          <div  id="history" onClick={gotoHistory}>
+            <HistoryIcon selected={selected === "history" ? true : false} />
           </div>
         </Router>
       </StyledFooter>

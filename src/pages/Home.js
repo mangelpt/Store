@@ -87,7 +87,7 @@ export function Home() {
           </Link>
         ))}
       </List>
-      <Footer />
+      <Footer selected={"home"}/>
     </Page>
   );
 }

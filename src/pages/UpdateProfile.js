@@ -55,7 +55,7 @@ export function UpdateProfile(){
           avatar_url={infouser.avatar_url}
         />
       </div>
-      <Footer />
+      <Footer selected={"profile"} />
     </StyledDiv>
   );
 }

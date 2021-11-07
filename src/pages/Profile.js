@@ -89,7 +89,7 @@ export function Profile(){
         <ButtonHistory />
       </div>
       <Button text="Logout" fnc={handlelogout} />
-      <Footer />
+      <Footer selected={"profile"}/>
     </StyledDiv>
   );
 }

@@ -27,7 +27,7 @@ export const History = () => {
       await ShowOrders().then(data => setHistory(data));
     }
     fetchHistory();
-  }, [history])
+  }, []);
 
   let Hs = useHistory()
   const handleClick = () => {
@@ -48,6 +48,7 @@ export const History = () => {
           <HistoryEmpty /> :
           <div className="container">
             {history.map((order) => <Collapse
+              key={order.id}
               id={order.id}
               date={order.date}
               amount={order.products.length}
@@ -57,7 +58,7 @@ export const History = () => {
             />)}
           </div>
       }
-      <Footer />
+      <Footer selected={"history"} />
     </StyledDiv>
 
 
