@@ -8,7 +8,7 @@ import { useState } from 'react';
 // import { AxiosIndexProducts, AxiosProductsId } from '../services/AxiosProduct';
 // import { AxiosShowUser, AxiosUpdateUser } from '../services/AxiosUser';
 import { NavLink } from "react-router-dom";
-
+import { useHistory } from "react-router";
 const Page = styled.div`
   width: 100vw;
   height: 100vh;
@@ -37,42 +37,43 @@ const Container = styled.div`
 
 export default function Login() {
 
-  const [email,SetEmail] = useState("");
-  const [password,SetPassword] = useState("");
+  const history = useHistory();
 
-  async function handleAxiosLogin(){
-    await AxiosLogin({email, password}).then(data => console.log(data));
+  async function handleAxiosLogin(e){
+      e.preventDefault();
+      const email = e.target.elements.email.value;
+      const password = e.target.elements.password.value;
+      const response= await AxiosLogin({email: email, password: password});
+       sessionStorage.setItem('token', await JSON.stringify(response.token))
     // await OrderProducts({date: "2021-03-18", address: "jr ceramicas 360", product_ids:[8]}).then(data => console.log(data));
     // await ShowOrders().then(data => console.log(data));
     // await AxiosIndexProducts().then(data => console.log(data));
     // await AxiosProductsId(1).then(data => console.log(data));
     // await AxiosShowUser().then(data => console.log(data, "showuser"));
     // await AxiosUpdateUser().then(data => console.log(data, "updateuser"));
+    if (!response.token) return;
+    history.push("/home");
   }
 
   return (
     <Page>
       <Hero prefix="login" />
       <Container>
-        <Form>
+        <Form  onSubmit={handleAxiosLogin}>
           <CardInput 
             textlabel="Email address"
             name="email"
             type="email"
             placeholder="my_mail@mail.com"
-            handleaxios={(e) => SetEmail(e.target.value)}
           />
           <CardInput 
             textlabel="Password"
             name="password"
             type="password"
             placeholder="**********"
-            handleaxios={(e) => SetPassword(e.target.value)}
           />
-        </Form>
-        <NavLink to="/home">
-          <Button fnc={handleAxiosLogin} text="Login"/>
-        </NavLink>
+           <Button text="Login"/>
+        </Form>         
       </Container>
     </Page>
   );
