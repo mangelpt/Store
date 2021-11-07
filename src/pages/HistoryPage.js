@@ -10,11 +10,11 @@ import { HistoryEmpty } from '../components/UI/HistoryEmpty';
 
 
 const StyledDiv = styled.div`
-height: 100vh;
 width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+margin-bottom: 104px;
 .container{
   flex: 2;
 }
