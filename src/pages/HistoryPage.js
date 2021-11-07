@@ -31,7 +31,7 @@ export const History = () => {
 
   let Hs = useHistory()
   const handleClick = () => {
-    Hs.push("checkout")
+    Hs.push("/home")
   }
 
   return (

@@ -8,6 +8,7 @@ import { Button } from '../components/UI/Button';
 import { FoodCart } from '../components/UI/FoodCart';
 import { useOrderContext } from '../contexts/OrderContext';
 import { Redirect } from "react-router-dom";
+import { useHistory } from 'react-router';
 
 const StyledDiv = styled.div`
 width: 100vw;
@@ -27,7 +28,7 @@ export function Cart() {
   const orderData = useOrderContext();
   const [foods, setFoods] = useState([]);
   const [redirect, setRedirect] = useState(false);
-
+  const history = useHistory();
   useEffect(() => {
     setFoods(orderData.foods);
   }, [orderData.foods]);
@@ -35,12 +36,14 @@ export function Cart() {
   function ToCheckout () {
     setRedirect(true);
   }
-
+  function backHome(){
+    history.push("/home");
+  }
   return (
     <StyledDiv>
       {redirect && <Redirect to={"/checkout"} />}
       <BackHistory >
-        <button>
+        <button onClick={backHome}>
           <ArrowIcon />
         </button>
         Cart
