@@ -52,6 +52,7 @@ align-items: center;
 export function Checkout() {
   const orderData = useOrderContext();
   const foods = orderData.foods;
+  const [disableInput, setDisableInput] = useState(true);
   const [infouser, SetInfouser] = useState({
     name: "",
     phone: "",
@@ -67,6 +68,10 @@ export function Checkout() {
     SetInfouser({ ...infouser, [name]: value });
   };
 
+  function handleDisable () {
+    setDisableInput(!disableInput);
+  }
+
   return (
     <StyledDiv>
       {console.log(infouser)}
@@ -80,13 +85,14 @@ export function Checkout() {
         <h3>Delivery</h3>
         <span>
           <p>Address details </p>
-          <button>change</button>
+          <button onClick={handleDisable}>change</button>
         </span>
         <CheckoutCard 
           name = {infouser.name}
           address = {infouser.address}
           phone = {infouser.phone}
           onChange = {handleFormChange}
+          disabled = {disableInput}
         />
       </div>
       <TotalPrice pricetotal={

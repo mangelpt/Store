@@ -48,14 +48,17 @@ export function CheckoutCard(props) {
           value={props.name}
           placeholder="name"
           onChange={props.onChange}
-          />
+          disabled={props.disabled}
+        />
         <div />
         <input
           type="text"
           name="address"
           value={props.address}
           onChange={props.onChange}
-          placeholder="address" />
+          placeholder="address" 
+          disabled={props.disabled}
+        />
         <div />
         <input
           type="tel"
@@ -63,6 +66,7 @@ export function CheckoutCard(props) {
           value={props.phone}
           placeholder="phone"
           onChange={props.onChange}
+          disabled={props.disabled}
         />
       </form>
     </Checkout>
