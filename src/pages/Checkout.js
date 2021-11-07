@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Footer } from '../components/Footer';
 import { TotalPrice } from '../components/TotalPrice';
 import { BackHistory } from '../components/UI/BackHistory';
@@ -8,6 +8,7 @@ import { Button } from '../components/UI/Button';
 import { CheckoutCard } from '../components/UI/CheckoutCard';
 import { Link, Redirect } from 'react-router-dom';
 import { useOrderContext } from '../contexts/OrderContext';
+import { AxiosShowUser } from '../services/AxiosUser';
 
 const StyledDiv = styled.div`
 width: 100vw;
@@ -51,9 +52,24 @@ align-items: center;
 export function Checkout() {
   const orderData = useOrderContext();
   const foods = orderData.foods;
+  const [infouser, SetInfouser] = useState({
+    name: "",
+    phone: "",
+    address: "",
+  });
+
+  useEffect(() => {
+    AxiosShowUser().then(datauser => SetInfouser(datauser));
+  },[])
+
+  const handleFormChange = (event) => {
+    const { name, value } = event.target;
+    SetInfouser({ ...infouser, [name]: value });
+  };
 
   return (
     <StyledDiv>
+      {console.log(infouser)}
       <BackHistory>
         <Link to="/cart">
           <ArrowIcon />
@@ -66,7 +82,12 @@ export function Checkout() {
           <p>Address details </p>
           <button>change</button>
         </span>
-        <CheckoutCard />
+        <CheckoutCard 
+          name = {infouser.name}
+          address = {infouser.address}
+          phone = {infouser.phone}
+          onChange = {handleFormChange}
+        />
       </div>
       <TotalPrice pricetotal={
         (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
