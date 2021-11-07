@@ -6,6 +6,8 @@ import { BackHistory } from '../components/UI/BackHistory';
 import { ArrowIcon } from '../components/UI/Icons';
 import { Button } from '../components/UI/Button';
 import { CheckoutCard } from '../components/UI/CheckoutCard';
+import { Link, Redirect } from 'react-router-dom';
+import { useOrderContext } from '../contexts/OrderContext';
 
 const StyledDiv = styled.div`
 height: 100vh;
@@ -38,12 +40,15 @@ h3{
 }
 `;
 export function Checkout() {
+  const orderData = useOrderContext();
+  const foods = orderData.foods;
+
   return (
     <StyledDiv>
-      <BackHistory >
-        <button>
+      <BackHistory>
+        <Link to="/cart">
           <ArrowIcon />
-        </button>
+        </Link>
         Checkout
       </BackHistory>
       <h3>Delivery</h3>
@@ -54,7 +59,9 @@ export function Checkout() {
       <div className="container">
         <CheckoutCard />
       </div>
-      <TotalPrice pricetotal={12.35} />
+      <TotalPrice pricetotal={
+        (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
+      } />
       <Button text="Complete Order" />
       <Footer />
     </StyledDiv>

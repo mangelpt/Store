@@ -7,6 +7,7 @@ import { ArrowIcon } from '../components/UI/Icons';
 import { Button } from '../components/UI/Button';
 import { FoodCart } from '../components/UI/FoodCart';
 import { useOrderContext } from '../contexts/OrderContext';
+import { Redirect } from "react-router-dom";
 
 const StyledDiv = styled.div`
 width: 100vw;
@@ -26,13 +27,19 @@ margin-bottom: 174px;
 export function Cart() {
   const orderData = useOrderContext();
   const [foods, setFoods] = useState([]);
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     setFoods(orderData.foods);
   }, [orderData.foods]);
 
+  function ToCheckout () {
+    setRedirect(true);
+  }
+
   return (
     <StyledDiv>
+      {redirect && <Redirect to={"/checkout"} />}
       <BackHistory >
         <button>
           <ArrowIcon />
@@ -53,7 +60,7 @@ export function Cart() {
       <TotalPrice pricetotal={
         (foods.reduce((acc, food) => acc + food.price * food.count, 0))/100
       } />
-      <Button text="Checkout" prefix="foot"/>
+      <Button text="Checkout" prefix="foot" fnc={ToCheckout}/>
       <Footer />
     </StyledDiv>
   );

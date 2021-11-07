@@ -7,7 +7,7 @@ import { Button } from '../components/UI/Button';
 import { ArrowIcon } from '../components/UI/Icons';
 import { useLocation } from "react-router-dom";
 import { AxiosProductsId } from '../services/AxiosProduct';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { useOrderContext } from '../contexts/OrderContext';
 
 const StyledDiv = styled.div`
@@ -29,6 +29,7 @@ export const FoodDetails = () => {
   const location = useLocation();
   const [product, setProduct] = useState(null);
   const orderData = useOrderContext();
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     const data = async () => {
@@ -49,10 +50,15 @@ export const FoodDetails = () => {
       count: 1,
     }
     orderData.addFood(food);
-    } 
+  }
+  
+  function ToCart () {
+    setRedirect(true);
+  }
 
   return (
     <StyledDiv>
+      {redirect && <Redirect to={"/cart"} />}
       <BackHistory>
         <Link to="/home">
           <ArrowIcon />
@@ -70,12 +76,9 @@ export const FoodDetails = () => {
       }
       {product && orderData.foods.filter(item => item.id === product.id).length === 0 ?
         <Button text="Add to cart" prefix="foot" fnc={handleClick}/> :
-        <Link to="/cart">
-          <Button text="Go to cart"/>
-        </Link>
+        <Button text="Go to cart" prefix="foot" fnc={ToCart}/>
       }
       <Footer />
-
     </StyledDiv>
   )
 }
