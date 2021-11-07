@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { NavLink, BrowserRouter as Router } from 'react-router-dom'
+import { NavLink, BrowserRouter as Router, Link } from 'react-router-dom'
 import { HistoryIcon, HomeIcon, UserIcon } from './UI/Icons'
+import { useHistory } from "react-router";
 
 const StyledFooter = styled.footer`
 width: 75%;
@@ -17,22 +18,36 @@ svg{
 position: fixed;
 bottom: 0;
 z-index: 3;
+  div{
+    cursor: pointer;
+  }
 `;
 
 export const Footer = () => {
+  const history = useHistory();
+  const gotoProfile = () => {
+    history.push('/profile')
+  }
+  const gotoHome = () => {
+    history.push('/home')
+  }
+  const gotoHistory = () => {
+    history.push('/history')
+  }
+
   return (
     <>
       <StyledFooter>
         <Router>
-          <NavLink to="/home">
+         <div id="home" onClick={gotoHome}>
             <HomeIcon />
-          </NavLink>
-          <NavLink to="/profile">
-            <UserIcon />
-          </NavLink>
-          <NavLink to="/history">
+          </div>
+          <div  id="profile"  onClick={gotoProfile}>
+            <UserIcon/>
+          </div>
+          <div  id="history"  onClick={gotoHistory}>
             <HistoryIcon />
-          </NavLink>
+          </div>
         </Router>
       </StyledFooter>
     </>
