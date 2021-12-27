@@ -7,7 +7,7 @@ to try we can use this credentials:
 - or instead you can create a new account in the Sing-up option 
 
 ## this app is fully responsive 
--you can verify using device toolbar from chrome developer tools  
+- you can verify using device toolbar from chrome developer tools  
 ## Available Scripts
 
 In the project directory, you can run:
