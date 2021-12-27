@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 ## this app have a login with one API
 to try we can use this credentials:
--email : test23@mail.com
--password: 123456
+- email : test23@mail.com
+- password: 123456
 
 - or instead you can create a new account in the Sing-up option 
 
