@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import styled from "@emotion/styled";
-
 import { BackHistory } from '../components/UI/BackHistory';
 import { ButtonHistory } from '../components/UI/ButtonHistory';
 import { ArrowIcon } from '../components/UI/Icons';
@@ -44,25 +43,25 @@ const StyledDiv = styled.div`
     margin-top: 20px;
 `
 
-export function Profile(){
+export function Profile() {
 
-  const [infouser, SetInfouser] = React.useState([]);
+  const [infuser, SetInfuser] = React.useState([]);
   const history = useHistory();
 
   useEffect(() => {
     async function GetData() {
       const data = await AxiosShowUser();
-      SetInfouser(await data);
+      SetInfuser(await data);
     }
-    GetData();
-  },[]);
+    GetData().then( );
+  }, []);
 
-  function handlelogout() {
+  function handleLogout() {
     sessionStorage.removeItem("token");
     history.push("/login");
   }
 
-  function backHome(){
+  function backHome() {
     history.push("/home");
   }
 
@@ -80,16 +79,16 @@ export function Profile(){
           <a href="/updateprofile">change</a>
         </div>
         <CardPersonalDetails
-          name={infouser.name}
-          email={infouser.email}
-          phone={infouser.phone}
-          address={infouser.address}
-          avatar_url={infouser.avatar_url}
+          name={infuser.name}
+          email={infuser.email}
+          phone={infuser.phone}
+          address={infuser.address}
+          avatar_url={infuser.avatar_url}
         />
         <ButtonHistory />
       </div>
-      <Button text="Logout" fnc={handlelogout} />
-      <Footer selected={"profile"}/>
+      <Button text="Logout" fnc={handleLogout} />
+      <Footer selected={"profile"} />
     </StyledDiv>
   );
 }

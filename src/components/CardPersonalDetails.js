@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import  {Input} from "./UI/Input"
-// import photo from "./person.png"
+import photo from "./person.png"
 
 const CardPersonal = styled.div`
-  background: #FFFFFF;
+  background-color: #ffff;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
   border-radius: 20px;
   padding: 16px 18px 18px 16px;
@@ -14,6 +14,7 @@ const CardPersonal = styled.div`
   margin:0;
   padding: unset;
   margin-top:10px;
+  align-self: center;
   form {
     margin-top:18px;
     width: 165px;
@@ -77,7 +78,7 @@ export const TextArea = styled.textarea`
 export function CardPersonalDetails(props) {
   return (
     <CardPersonal>
-      <img src={props.avatar_url} alt="profile" />
+      <img src={`${props.avatar_url|| photo}`} alt="profile" />
       <form>
         <Input
           type="text"
