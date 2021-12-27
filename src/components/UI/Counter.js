@@ -5,7 +5,7 @@ import { useOrderContext } from "../../contexts/OrderContext";
 export function Counter(props) {
   const orderData = useOrderContext();
   const [count, setCount] = useState(props.count)
-  
+
   const ContainerCount = styled.div`
     width: 52px;
     height: 20px;
@@ -14,7 +14,7 @@ export function Counter(props) {
     display: flex;
     justify-content: center;
     align-items: center;
-  `; 
+  `;
 
   const Num = styled.div`
     font-family: "Source Sans Pro";
@@ -37,6 +37,7 @@ export function Counter(props) {
     color: #FFFFFF;
     padding: 6px 7px;
     margin-bottom: 2px;
+    cursor:pointer;
   `;
 
   const Signs = styled.p`
@@ -49,6 +50,7 @@ export function Counter(props) {
     color: #ffffff;
     padding: 6px 7px 8px 4px;
     margin-bottom: 2px;
+    cursor: pointer;
   `;
 
   function handleClickLeast() {
