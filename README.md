@@ -3,7 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 to try we can use this credentials:
 - email : test23@mail.com
 - password: 123456
-
 - or instead you can create a new account in the Sing-up option 
 
 ## this app is fully responsive 
